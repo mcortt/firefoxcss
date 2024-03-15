@@ -65,10 +65,19 @@ Quote: https://userChrome.org | https://github.com/topics/userchrome
         background-color: var(--toolbar-field-color) !important;
         color: var(--toolbar-field-background-color) !important;
     }
+
     /*theme Right-Click Menu sub-menus (with the arrows) on Hover*/
     menu:where([_moz-menuactive="true"]:not([disabled="true"])), menuitem:where([_moz-menuactive="true"]:not([disabled="true"])) {
         background-color: var(--toolbar-field-color) !important;
         color: var(--toolbar-field-background-color) !important;
+    }
+
+    /* Hide Find Bar when not in use */
+    findbar:not(:focus-within) { 
+        height: 0px !important; 
+        overflow: hidden !important; 
+        padding: 0px !important; 
+        margin: 0px !important; 
     }
 
     /*Theme toolbar based on container color....NEXT THREE SECTIONS*/
