@@ -1,4 +1,4 @@
-//
+        //
 /* You may copy+paste this file and use it as it is.
  *
  * If you make changes to your about:config while the program is running, the
