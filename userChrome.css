@@ -1,0 +1,122 @@
+
+/*************************************************************************************************************************************************************************************************************************************************************
+
+"userChrome.css" is a custom CSS file that can be used to specify CSS style rules for Floorp's interface (NOT internal site) using "chrome" privileges.
+For instance, if you want to hide the tab bar, you can use the following CSS rule:
+
+**************************************
+#TabsToolbar {                       *
+    display: none !important;        *
+}                                    *
+**************************************
+
+NOTE: You can use the userChrome.css file without change preferences (about:config)
+
+Quote: https://userChrome.org | https://github.com/topics/userchrome 
+
+************************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+@import url("autohide_bookmarks_and_main_toolbars.css");
+@-moz-document url(chrome://browser/content/browser.xhtml) {
+/* Please write your custom CSS under this line*/
+  
+    /* remove extension name in address bar */
+    #identity-box.extensionPage #identity-icon-label {
+        display: none !important;
+    }
+    
+    /* Move Find Bar above the page*/
+    .browserContainer > findbar {
+        order: -1 !important; /* for 113 and newer */
+        border-top: none !important;
+        border-bottom: 1px solid ThreeDShadow !important;
+    } 
+    
+    /* Center Find Bar content */
+    .findbar-container {
+        justify-content: center !important;
+    }
+    
+    /* Hide Match Diacritics */
+    .findbar-match-diacritics {
+        display: none !important;
+    }
+
+    /* Center Bookmarks Bar */
+    #PlacesToolbarItems {
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    /* Hide All Tabs Button*/
+    #alltabs-button {
+        display: none !important;
+    }
+
+    /*Theme Right-Click Menu too*/
+    .menupopup-arrowscrollbox {
+        background-color: var(--arrowpanel-background, --toolbar-field-background-color) !important;
+        border-color: var(--arrowpanel-border-color, --toolbar-field-color) !important;
+        color: var(--arrowpanel-color, --toolbar-field-color) !important;
+    }
+    
+    /*Theme Right-Click Menu On Hover too*/
+    menuitem:hover{
+        background-color: var(--toolbar-field-color) !important;
+        color: var(--toolbar-field-background-color) !important;
+    }
+    /*theme Right-Click Menu sub-menus (with the arrows) on Hover*/
+    menu:where([_moz-menuactive="true"]:not([disabled="true"])), menuitem:where([_moz-menuactive="true"]:not([disabled="true"])) {
+        background-color: var(--toolbar-field-color) !important;
+        color: var(--toolbar-field-background-color) !important;
+    }
+
+    /*Theme toolbar based on container color....NEXT THREE SECTIONS*/
+    :root:has(.tabbrowser-tab[selected].identity-color-blue) {
+        .tab-background[selected]{background: royalblue !important;}
+        .tab-text[selected]{color: white !important;}
+        /*
+        --toolbar-bgcolor: dodgerblue !important;
+        --toolbarbutton-icon-fill: white !important;
+        --toolbar-color: white !important;
+        --toolbar-field-color: white !important;
+        --toolbar-field-border-color: white !important;        
+        --toolbar-field-background-color: dodgerblue !important;
+        --toolbar-field-focus-color: dodgerblue !important;
+        --toolbar-field-focus-border-color: dodgerblue !important;
+        --toolbar-field-focus-background-color: white !important;
+        */
+    }
+    :root:has(.tabbrowser-tab[selected].identity-color-purple) {
+        .tab-background[selected]{background: purple !important;}
+        .tab-text[selected]{color: white !important;}
+        /*
+        --toolbar-bgcolor: purple !important;
+        --toolbarbutton-icon-fill: white !important;
+        --toolbar-color: white !important;
+        --toolbar-field-color: white !important;
+        --toolbar-field-border-color: white !important;        
+        --toolbar-field-background-color: purple !important;
+        --toolbar-field-focus-color: purple !important;
+        --toolbar-field-focus-border-color: purple !important;
+        --toolbar-field-focus-background-color: white !important;
+        */
+    }
+    :root:has(.tabbrowser-tab[selected].identity-color-green) {
+        .tab-background[selected]{background: green !important;}
+        .tab-text[selected]{color: white !important;}
+        /*
+        --toolbar-bgcolor: green !important;
+        --toolbar-color: white !important;     
+        --toolbar-field-color: white !important;
+        --toolbar-field-border-color: white !important;        
+        --toolbar-field-background-color: green !important;
+        --toolbar-field-focus-color: green !important;
+        --toolbar-field-focus-border-color: green !important;
+        --toolbar-field-focus-background-color: white !important;
+        --toolbarbutton-icon-fill: white !important;
+        */
+    }
+}
+
+
