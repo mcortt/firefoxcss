@@ -1,0 +1,1 @@
+Just some code for my own Firefox theming and customization.
