@@ -1,0 +1,24 @@
+/* Set the initial state of the toolbar and bookmarks bar to hidden */
+#toolbar, #bookmarks-bar {
+    height: 0;
+    overflow: hidden;
+    transition: height 1s ease-in-out;
+  }
+  
+  /* Show the toolbar and bookmarks bar when they are focused or hovered over */
+  #toolbar:focus, #toolbar:hover,
+  #bookmarks-bar:focus, #bookmarks-bar:hover {
+    height: 100px; /* The actual height of your toolbar */
+  }
+  
+  /* Adjust the top property of the content below the toolbar and bookmarks bar based on their height */
+  #content-deck {
+    position: relative;
+    top: 98px; /* The actual height of your toolbar */
+  }
+  
+  /* When the toolbar and bookmarks bar are hidden, set the top property of the content to 0 */
+  #toolbar:not(:focus):not(:hover) ~ #content-deck,
+  #bookmarks-bar:not(:focus):not(:hover) ~ #content-deck {
+    top: 0;
+  }

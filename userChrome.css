@@ -16,10 +16,14 @@ Quote: https://userChrome.org | https://github.com/topics/userchrome
 
 ************************************************************************************************************************************************************************************************************************************************************/
 @charset "UTF-8";
-@import url("autohide_bookmarks_and_main_toolbars.css");
+@import url("firefoxonebar.css");
+@import url("autohide_bookmarks.css");
 @-moz-document url(chrome://browser/content/browser.xhtml) {
 /* Please write your custom CSS under this line*/
   
+    /* Hide Containers Icon and Sideview in URL Bar */
+    .urlbar-addon-page-action { display: none; }
+
     /* remove extension name in address bar */
     #identity-box.extensionPage #identity-icon-label {
         display: none !important;
