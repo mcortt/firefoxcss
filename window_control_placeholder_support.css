@@ -10,36 +10,16 @@ See the above repository for updates as well as full license text. */
 
 /* Defaults for window controls on RIGHT side of the window */
 /* Modify these values to match your preferences */
-:root:is([tabsintitlebar], [sizemode="fullscreen"]) {
-  --uc-window-control-width: 120px; /* Space reserved for window controls (Win10) */
-  /* Extra space reserved on both sides of the nav-bar to be able to drag the window */
-  --uc-window-drag-space-pre: 30px; /* left side*/
-  --uc-window-drag-space-post: 30px; /* right side*/
+@media screen and (min-width: 1280px) {
+  :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
+    --uc-window-control-width: 100px; /* Space reserved for window controls (Win10) */
+    /* Extra space reserved on both sides of the nav-bar to be able to drag the window */
+    --uc-window-drag-space-pre: 30px; /* left side*/
+    --uc-window-drag-space-post: 30px; /* right side*/
+  }
 }
-
 :root:is([tabsintitlebar][sizemode="maximized"], [sizemode="fullscreen"]) {
   --uc-window-drag-space-pre: 0px; /* Remove pre space */
-}
-
-@media  (-moz-platform: windows-win7),
-        (-moz-platform: windows-win8){
-  :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
-    --uc-window-control-width: 105px;
-  }
-}
-
-@media (-moz-gtk-csd-available) {
-  :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
-    --uc-window-control-width: 84px;
-  }
-}
-@media (-moz-platform: macos){
-  :root:is([tabsintitlebar]) {
-    --uc-window-control-width: 72px;
-  }
-  :root:is([tabsintitlebar][sizemode="fullscreen"]) {
-    --uc-window-control-width: 0;
-  }
 }
 
 .titlebar-buttonbox, #window-controls{ color: var(--toolbar-color) }
@@ -63,38 +43,4 @@ See the above repository for updates as well as full license text. */
   border-inline-style: solid !important;
   border-right-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px));
   background-clip: border-box !important;
-}
-
-/* Rules for window controls on left layout */
-@media (-moz-bool-pref: "userchrome.force-window-controls-on-left.enabled"),
-       (-moz-gtk-csd-reversed-placement),
-       (-moz-platform: macos){
-  :root[tabsintitlebar="true"] #nav-bar{
-    border-inline-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px)) var(--uc-window-drag-space-pre,0px)
-  }
-  :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
-  :root[sizemode="fullscreen"] #window-controls{ right: unset }
-}
-@media (-moz-bool-pref: "userchrome.force-window-controls-on-left.enabled"){
-  .titlebar-buttonbox-container{
-    order: -1 !important;
-  }
-  .titlebar-buttonbox{
-    flex-direction: row-reverse;
-  }
-}
-
-/* This pref can be used to force window controls on left even if that is not normal behavior on your OS */
-@supports -moz-bool-pref("userchrome.force-window-controls-on-left.enabled"){
-  :root[tabsintitlebar="true"] #nav-bar{
-    border-inline-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px)) var(--uc-window-drag-space-pre,0px)
-  }
-  :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
-  :root[sizemode="fullscreen"] #window-controls{ right: unset; }
-  .titlebar-buttonbox-container{
-    order: -1 !important;
-  }
-  .titlebar-buttonbox{
-    flex-direction: row-reverse;
-  }
 }

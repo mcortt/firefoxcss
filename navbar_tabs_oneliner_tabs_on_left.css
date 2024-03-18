@@ -9,6 +9,8 @@ Get window_control_placeholder_support.css
 Window controls will be all wrong without it
 */
 
+@media screen and (min-width: 1279px){
+  
 :root[uidensity="compact"]{
     --tab-block-margin: 2px !important;
     }
@@ -42,6 +44,9 @@ Window controls will be all wrong without it
   /* prevent urlbar overflow on narrow windows */
   /* Dependent on how many items are in navigation toolbar and tabs-/nav-bar ratio - ADJUST AS NEEDED */
   @media screen and (max-width: 1500px){
+    .toolbarbutton-1:not(#back-button):not(#forward-button):not(#stop-reload-button):not(#fxa-toolbar-menu-button):not(#unified-extensions-button):not(#PanelUI-menu-button) {
+      display: none !important;
+    }
     #urlbar-container{ min-width:unset !important }
   }
   
@@ -85,28 +90,6 @@ Window controls will be all wrong without it
   #nav-bar{ border-left-width: 0px !important }
   #nav-bar::before{ display:none !important }
   
-  /* Rules specific to window controls on left layout */
-  @media (-moz-bool-pref: "userchrome.force-window-controls-on-left.enabled"),
-         (-moz-platform: macos),
-         (-moz-gtk-csd-reversed-placement){
-    :root:not([inFullscreen]) #TabsToolbar-customization-target > .titlebar-spacer[type="pre-tabs"]{
-      width: var(--uc-window-drag-space-post) !important;
-      display: flex !important; 
-    }
-    #TabsToolbar > .titlebar-buttonbox-container{
-      display: flex;
-    }
-  }
-  @supports -moz-bool-pref("userchrome.force-window-controls-on-left.enabled"){
-    :root:not([inFullscreen]) #TabsToolbar-customization-target > .titlebar-spacer[type="pre-tabs"]{
-      width: var(--uc-window-drag-space-post) !important;
-      display: flex !important; 
-    }
-    #TabsToolbar > .titlebar-buttonbox-container{
-      display: flex;
-    }
-  }
-  
   /* 1px margin on touch density causes tabs to be too high */
   .tab-close-button{ margin-top: 0 !important }
   
@@ -122,3 +105,4 @@ Window controls will be all wrong without it
   
   /* Fix customization view */
   #customization-panelWrapper > .panel-arrowbox > .panel-arrow{ margin-inline-end: initial !important; }
+}

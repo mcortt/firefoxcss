@@ -16,17 +16,25 @@ Quote: https://userChrome.org | https://github.com/topics/userchrome
 
 ************************************************************************************************************************************************************************************************************************************************************/
 @charset "UTF-8";
-/* Tabs on Left */
-/* @import url("window_control_placeholder_support.css");
-@import url("navbar_tabs_oneliner_tabs_on_left.css"); */
-/* Tabs on Right */
+/* Hide Page Action Buttons in URL until hovered. */
 @import url("page_action_buttons_on_hover.css");
-@import url("navbar_tabs_responsive_oneliner.css");
+/* Hide Bookmarks Bar until hovered. */
 @import url("autohide_bookmarks.css");
+/* Tabs on Left */
+@import url("window_control_placeholder_support.css");
+@import url("navbar_tabs_oneliner_tabs_on_left.css");
+/* Tabs on Right */
+/* @import url("navbar_tabs_responsive_oneliner.css"); */
+
 @-moz-document url(chrome://browser/content/browser.xhtml) {
 /* Please write your custom CSS under this line*/
     /* Hide Containers Icon and Sideview in URL Bar */
     /* .urlbar-addon-page-action { display: none; } */
+
+   /* Reduce left spacer on non-maximized windows */
+    .titlebar-spacer[type="pre-tabs"] {
+        display: none !important;
+    }
 
     /* remove extension name in address bar */
     #identity-box.extensionPage #identity-icon-label {
