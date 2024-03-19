@@ -43,7 +43,7 @@ Window controls will be all wrong without it
   
   /* prevent urlbar overflow on narrow windows */
   /* Dependent on how many items are in navigation toolbar and tabs-/nav-bar ratio - ADJUST AS NEEDED */
-  @media screen and (max-width: 1500px){
+  @media screen and (max-width: 1540px){
     .toolbarbutton-1:not(#back-button):not(#forward-button):not(#stop-reload-button):not(#fxa-toolbar-menu-button):not(#unified-extensions-button):not(#PanelUI-menu-button) {
       display: none !important;
     }

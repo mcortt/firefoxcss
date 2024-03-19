@@ -28,8 +28,16 @@ Quote: https://userChrome.org | https://github.com/topics/userchrome
 
 @-moz-document url(chrome://browser/content/browser.xhtml) {
 /* Please write your custom CSS under this line*/
-    /* Hide Containers Icon and Sideview in URL Bar */
+    /* Hide add icons in URL Bar */
     /* .urlbar-addon-page-action { display: none; } */
+
+    /* Hide URL Bar except when focused or hovered by pushing page down */
+    /* :root[sessionrestored] #nav-bar{ max-height:0; min-height: 0 !important }
+    #navigator-toolbox:hover > #nav-bar, #nav-bar.browser-toolbar:focus-within{ max-height: unset; min-height: unset !important; } */
+
+    /* Hide Bookmarks Bar until focused or hovered by pushing page down */
+    /* #PersonalToolbar {visibility: collapse !important;}
+    #navigator-toolbox:hover > #PersonalToolbar, #nav-bar.browser-toolbar:focus-within + #PersonalToolbar { visibility: visible !important; }} */
 
    /* Reduce left spacer on non-maximized windows */
     .titlebar-spacer[type="pre-tabs"] {
@@ -99,47 +107,14 @@ Quote: https://userChrome.org | https://github.com/topics/userchrome
     :root:has(.tabbrowser-tab[selected].identity-color-blue) {
         .tab-background[selected]{background: royalblue !important;}
         .tab-text[selected]{color: white !important;}
-        /*
-        --toolbar-bgcolor: dodgerblue !important;
-        --toolbarbutton-icon-fill: white !important;
-        --toolbar-color: white !important;
-        --toolbar-field-color: white !important;
-        --toolbar-field-border-color: white !important;        
-        --toolbar-field-background-color: dodgerblue !important;
-        --toolbar-field-focus-color: dodgerblue !important;
-        --toolbar-field-focus-border-color: dodgerblue !important;
-        --toolbar-field-focus-background-color: white !important;
-        */
     }
     :root:has(.tabbrowser-tab[selected].identity-color-purple) {
         .tab-background[selected]{background: purple !important;}
         .tab-text[selected]{color: white !important;}
-        /*
-        --toolbar-bgcolor: purple !important;
-        --toolbarbutton-icon-fill: white !important;
-        --toolbar-color: white !important;
-        --toolbar-field-color: white !important;
-        --toolbar-field-border-color: white !important;        
-        --toolbar-field-background-color: purple !important;
-        --toolbar-field-focus-color: purple !important;
-        --toolbar-field-focus-border-color: purple !important;
-        --toolbar-field-focus-background-color: white !important;
-        */
     }
     :root:has(.tabbrowser-tab[selected].identity-color-green) {
         .tab-background[selected]{background: green !important;}
         .tab-text[selected]{color: white !important;}
-        /*
-        --toolbar-bgcolor: green !important;
-        --toolbar-color: white !important;     
-        --toolbar-field-color: white !important;
-        --toolbar-field-border-color: white !important;        
-        --toolbar-field-background-color: green !important;
-        --toolbar-field-focus-color: green !important;
-        --toolbar-field-focus-border-color: green !important;
-        --toolbar-field-focus-background-color: white !important;
-        --toolbarbutton-icon-fill: white !important;
-        */
     }
 }
 
