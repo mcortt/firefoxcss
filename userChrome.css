@@ -1,45 +1,18 @@
-
-/*************************************************************************************************************************************************************************************************************************************************************
-
-"userChrome.css" is a custom CSS file that can be used to specify CSS style rules for Floorp's interface (NOT internal site) using "chrome" privileges.
-For instance, if you want to hide the tab bar, you can use the following CSS rule:
-
-**************************************
-#TabsToolbar {                       *
-    display: none !important;        *
-}                                    *
-**************************************
-
-NOTE: You can use the userChrome.css file without change preferences (about:config)
-
-Quote: https://userChrome.org | https://github.com/topics/userchrome 
-
-************************************************************************************************************************************************************************************************************************************************************/
 @charset "UTF-8";
-/* Hide Page Action Buttons in URL until hovered. */
+
+/* Import styles */
 @import url("page_action_buttons_on_hover.css");
-/* Hide Bookmarks Bar until hovered. */
 @import url("autohide_bookmarks.css");
-/* Tabs on Left */
 @import url("window_control_placeholder_support.css");
 @import url("navbar_tabs_oneliner_tabs_on_left.css");
+
 /* Tabs on Right */
 /* @import url("navbar_tabs_responsive_oneliner.css"); */
 
 @-moz-document url(chrome://browser/content/browser.xhtml) {
-/* Please write your custom CSS under this line*/
-    /* Hide add icons in URL Bar */
-    /* .urlbar-addon-page-action { display: none; } */
+    /* Custom CSS */
 
-    /* Hide URL Bar except when focused or hovered by pushing page down */
-    /* :root[sessionrestored] #nav-bar{ max-height:0; min-height: 0 !important }
-    #navigator-toolbox:hover > #nav-bar, #nav-bar.browser-toolbar:focus-within{ max-height: unset; min-height: unset !important; } */
-
-    /* Hide Bookmarks Bar until focused or hovered by pushing page down */
-    /* #PersonalToolbar {visibility: collapse !important;}
-    #navigator-toolbox:hover > #PersonalToolbar, #nav-bar.browser-toolbar:focus-within + #PersonalToolbar { visibility: visible !important; }} */
-
-   /* Reduce left spacer on non-maximized windows */
+    /* Reduce left spacer on non-maximized windows */
     .titlebar-spacer[type="pre-tabs"] {
         display: none !important;
     }
@@ -51,7 +24,7 @@ Quote: https://userChrome.org | https://github.com/topics/userchrome
     
     /* Move Find Bar above the page*/
     .browserContainer > findbar {
-        order: -1 !important; /* for 113 and newer */
+        order: -1 !important; 
         border-top: none !important;
     } 
     
@@ -84,7 +57,7 @@ Quote: https://userChrome.org | https://github.com/topics/userchrome
     }
     
     /*Theme Right-Click Menu On Hover too*/
-    menuitem:hover{
+    menuitem:hover {
         background-color: var(--toolbar-field-color) !important;
         color: var(--toolbar-field-background-color) !important;
     }
