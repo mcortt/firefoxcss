@@ -12,6 +12,20 @@
 @-moz-document url(chrome://browser/content/browser.xhtml) {
     /* Custom CSS */
 
+    /* Hide navigation buttons by default */
+    #back-button[disabled], #forward-button[disabled] {
+        visibility: hidden !important;
+        width: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Show navigation buttons when they are not disabled */
+    #back-button:not([disabled]), #forward-button:not([disabled]) {
+        visibility: visible !important;
+        width: auto !important;
+        padding: initial !important;
+    }
+
     /* Reduce left spacer on non-maximized windows */
     .titlebar-spacer[type="pre-tabs"] {
         display: none !important;

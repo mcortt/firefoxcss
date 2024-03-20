@@ -36,7 +36,8 @@
   padding-block: var(--uc-bm-padding) !important;
 }
 
-#nav-bar:hover + #PersonalToolbar,
+#navigator-toolbox:hover #PersonalToolbar,
+#navigator-toolbox:focus-within #PersonalToolbar,
 #PersonalToolbar:hover {
   transition-delay: 100ms !important;
   transform: rotateX(var(--uc-autohide-toolbar-focus-rotation,0));

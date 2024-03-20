@@ -7,7 +7,7 @@ See the above repository for updates as well as full license text. */
   }
 
   #navigator-toolbox {
-    --uc-navigationbar-width: 55vw;
+    --uc-navigationbar-width: 50vw;
     --uc-toolbar-height: 40px;
     --uc-urlbar-min-width: 50vw;
   }
