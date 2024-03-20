@@ -1,13 +1,7 @@
 @charset "UTF-8";
 
 /* Import styles */
-@import url("page_action_buttons_on_hover.css");
-@import url("autohide_bookmarks.css");
-@import url("window_control_placeholder_support.css");
 @import url("navbar_tabs_oneliner_tabs_on_left.css");
-
-/* Tabs on Right */
-/* @import url("navbar_tabs_responsive_oneliner.css"); */
 
 @-moz-document url(chrome://browser/content/browser.xhtml) {
     /* Custom CSS */

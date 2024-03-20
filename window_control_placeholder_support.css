@@ -6,13 +6,8 @@ See the above repository for updates as well as full license text. */
 
 @media screen and (min-width: 1278px) {
   :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
-    --uc-window-control-width: 100px;
-    --uc-window-drag-space-pre: 30px;
-    --uc-window-drag-space-post: 30px;
+    --uc-window-control-width: 130px;
   }
-}
-:root:is([tabsintitlebar][sizemode="maximized"], [sizemode="fullscreen"]) {
-  --uc-window-drag-space-pre: 0px;
 }
 
 .titlebar-buttonbox, #window-controls{
