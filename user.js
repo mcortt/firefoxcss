@@ -246,6 +246,9 @@ user_pref("gfx.canvas.accelerated", true);
 user_pref("permissions.default.shortcuts", 2);
 // PREF: open bookmarks in new tabs always
 user_pref("browser.tabs.loadBookmarksInTabs", true);
+// PREF: enable fingerprinting resistance
+user_pref("privacy.resistFingerprinting", true);
+user_pref("privacy.fingerprintingProtection", true);
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
