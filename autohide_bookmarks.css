@@ -1,7 +1,7 @@
-#PersonalToolbar {
+:root {
+  --uc-autohide-toolbar-delay: 400ms; /*adjust autohide/show time here */
   --uc-bm-height: 20px;
   --uc-bm-padding: 7px;
-  --uc-autohide-toolbar-delay: 600ms;
   --uc-autohide-toolbar-focus-rotation: 0deg;
   --uc-autohide-toolbar-hover-rotation: 0deg;
 }
@@ -43,6 +43,19 @@
   transform: rotateX(var(--uc-autohide-toolbar-focus-rotation,0));
 }
 
-#navigator-toolbox:is(:hover,:focus-within) {
+#navigator-toolbox {
   border-bottom-color: transparent !important;
+}
+
+/* Push the web content down when the bookmarks toolbar is visible */
+#navigator-toolbox:hover ~ #browser,
+#navigator-toolbox:focus-within ~ #browser {
+    transition-delay: 100ms !important;
+    transform: translateY(calc(var(--uc-bm-height) + var(--uc-bm-padding) + 1px));
+    transition: transform 135ms;
+}
+
+#navigator-toolbox:not(:hover):not(:focus-within) ~ #browser {
+    transform: translateY(0);
+    transition: transform 135ms linear var(--uc-autohide-toolbar-delay);
 }

@@ -6,9 +6,17 @@
 @-moz-document url(chrome://browser/content/browser.xhtml) {
     /* Custom CSS */
 
-    /* Remove max sidebar limit*/
+    /* Move Manage Extensions to top */
+    /* .panel-header {
+        display:none !important;
+      }
+    .panel-subview-footer-button {
+    order: -1 !important;
+    } */
 
+    /* Remove max sidebar limit*/
     #sidebar-box {max-width: 50vw !important;min-width: 5vw !important; }
+
     /* Hide navigation buttons by default */
     #back-button[disabled], #forward-button[disabled] {
         visibility: hidden !important;
