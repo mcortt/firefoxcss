@@ -249,6 +249,11 @@ user_pref("browser.tabs.loadBookmarksInTabs", true);
 // PREF: enable fingerprinting resistance
 user_pref("privacy.resistFingerprinting", true);
 user_pref("privacy.fingerprintingProtection", true);
+// PREF: enable/disable gfx.webrender.dcomp-video-hw-overlay-win
+user_pref("gfx.webrender.dcomp-video-hw-overlay-win", false);
+// user_pref("gfx.webrender.dcomp-video-hw-overlay-win-force-enabled", true);
+// Enable Nvidia Super Resolution
+// user_pref("gfx.webrender.super-resolution.nvidia", true);
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
