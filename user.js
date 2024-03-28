@@ -254,6 +254,7 @@ user_pref("gfx.webrender.dcomp-video-hw-overlay-win", false);
 // user_pref("gfx.webrender.dcomp-video-hw-overlay-win-force-enabled", true);
 // Enable Nvidia Super Resolution
 // user_pref("gfx.webrender.super-resolution.nvidia", true);
+user_pref("ui.key.menuAccessKeyFocuses" false);
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
