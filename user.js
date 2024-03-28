@@ -255,6 +255,8 @@ user_pref("gfx.webrender.dcomp-video-hw-overlay-win", false);
 // user_pref("gfx.webrender.super-resolution.nvidia", true);
 // PREF: disable ALT key bringing up titlebar.
 user_pref("ui.key.menuAccessKeyFocuses", false);
+// PREF: enable tab previews
+user_pref("browser.tabs.cardPreview.enabled", true);
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
