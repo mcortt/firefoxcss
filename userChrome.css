@@ -6,16 +6,13 @@
 @-moz-document url(chrome://browser/content/browser.xhtml) {
     /* Custom CSS */
 
-    /* Hide all but the active tab text */
-    .tabbrowser-tab:not([selected]) {
-        width: 36px !important; /* Adjust to your preferred width */
-        min-width: 36px !important;
-        max-width: 36px !important;
-      }
-      .tabbrowser-tab:not([selected]) .tab-text,
-      .tabbrowser-tab:not([selected]) .tab-close-button {
-        display: none;
-      }
+    /* Hide container page action button and reader mode button (F9 to use) */
+    #pageAction-urlbar-_testpilot-containers {
+        display: none !important
+    }
+    #reader-mode-button {
+        display: none !important;
+    }
 
     /* Remove max sidebar limit*/
     #sidebar-box {max-width: 50vw !important;min-width: 5vw !important; }

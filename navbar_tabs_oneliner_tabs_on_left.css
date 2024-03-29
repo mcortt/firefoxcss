@@ -2,7 +2,8 @@
 See the above repository for updates as well as full license text. */
 @import url("window_control_placeholder_support.css");
 @import url("autohide_bookmarks.css");
-@import url("page_action_buttons_on_hover.css");
+/* @import url("autocollapse_background_tabs.css"); */
+/* @import url("page_action_buttons_on_hover.css"); */
 
 @media screen and (min-width: 1278px) {
   :root[uidensity="compact"] {

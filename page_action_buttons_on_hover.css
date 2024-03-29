@@ -1,5 +1,9 @@
 /* Page action-buttons "slide in" when cursor is on top of them and don't reserve space when not used */
-
+/* Hide Reader Mode button -  Use F9 for reader mode instead */
+#reader-mode-button {
+  display: none !important;
+}
+  
 .urlbar-page-action {
   margin-inline-end: calc(-16px - 2 * var(--urlbar-icon-padding) );
   transition: margin-inline-end 100ms linear;
