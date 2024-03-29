@@ -6,13 +6,16 @@
 @-moz-document url(chrome://browser/content/browser.xhtml) {
     /* Custom CSS */
 
-    /* Move Manage Extensions to top */
-    /* .panel-header {
-        display:none !important;
+    /* Hide all but the active tab text */
+    .tabbrowser-tab:not([selected]) {
+        width: 36px !important; /* Adjust to your preferred width */
+        min-width: 36px !important;
+        max-width: 36px !important;
       }
-    .panel-subview-footer-button {
-    order: -1 !important;
-    } */
+      .tabbrowser-tab:not([selected]) .tab-text,
+      .tabbrowser-tab:not([selected]) .tab-close-button {
+        display: none;
+      }
 
     /* Remove max sidebar limit*/
     #sidebar-box {max-width: 50vw !important;min-width: 5vw !important; }
