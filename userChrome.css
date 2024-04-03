@@ -108,6 +108,30 @@
         .tab-background[selected]{background: green !important;}
         .tab-text[selected]{color: white !important;}
     }
+
+    /*** Container Indicator To Bottom Of Tab ***/
+    /* Active tab color for container tabs will use container color */
+
+    /* Hide the 1px container line */
+    #tabbrowser-tabs .tab-context-line {
+        display: none;
+    }
+
+    /* Add a 1px highlight line at the bottom of the tab */
+    #tabbrowser-tabs .tab-background {
+        /* border-top: solid 1px var(--identity-icon-color) !important; */
+        border-bottom: solid 1px var(--identity-icon-color) !important;
+        /* border-left: solid 1px var(--identity-icon-color) !important;
+        border-right: solid 1px var(--identity-icon-color) !important; */
+    }
+
+    /* Add a 2px highlight line at the top of the active tab */
+    #tabbrowser-tabs .tab-background[selected="true"] {
+        /* border-top: solid 2px var(--identity-icon-color, white) !important; */
+        border-bottom: solid 2px var(--identity-icon-color, white) !important;
+        /* border-left: solid 2px var(--identity-icon-color, white) !important;
+        border-right: solid 2px var(--identity-icon-color, white) !important; */
+    }
 }
 
 
