@@ -249,10 +249,6 @@ user_pref("browser.tabs.loadBookmarksInTabs", true);
 // PREF: enable fingerprinting resistance
 user_pref("privacy.resistFingerprinting", true);
 user_pref("privacy.fingerprintingProtection", true);
-// PREF: enable/disable gfx.webrender.dcomp-video-hw-overlay-win (gets rid of weird video oversaturation when moving from hdr to sdr screen)
-user_pref("gfx.webrender.dcomp-video-hw-overlay-win", false);
-// Enable Nvidia Super Resolution
-// user_pref("gfx.webrender.super-resolution.nvidia", true);
 // PREF: disable ALT key bringing up titlebar.
 user_pref("ui.key.menuAccessKeyFocuses", false);
 // PREF: enable tab previews
