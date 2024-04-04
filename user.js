@@ -253,6 +253,8 @@ user_pref("privacy.fingerprintingProtection", true);
 user_pref("ui.key.menuAccessKeyFocuses", false);
 // PREF: enable tab previews
 user_pref("browser.tabs.cardPreview.enabled", true);
+// PREF: set default apperance to Dark
+user_pref("layout.css.prefers-color-scheme.content-override", 0);
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
