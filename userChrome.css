@@ -6,6 +6,11 @@
 @-moz-document url(chrome://browser/content/browser.xhtml) {
     /* Custom CSS */
 
+    /* Hide 1password context menu item  id^= is wildcard*/
+    menu[id^="_d634138d-c276-4fc8-924b-40a0ea21d284"] {
+        display: none !important;
+    }
+
     /* Hide container page action button and reader mode button (F9 to use) */
     #pageAction-urlbar-_testpilot-containers {
         display: none !important
