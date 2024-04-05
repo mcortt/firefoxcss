@@ -247,14 +247,14 @@ user_pref("permissions.default.shortcuts", 2);
 // PREF: open bookmarks in new tabs always
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 // PREF: enable fingerprinting resistance
-user_pref("privacy.resistFingerprinting", true);
-user_pref("privacy.fingerprintingProtection", true);
+// user_pref("privacy.resistFingerprinting", true);
+// user_pref("privacy.fingerprintingProtection", true);
 // PREF: disable ALT key bringing up titlebar.
 user_pref("ui.key.menuAccessKeyFocuses", false);
 // PREF: enable tab previews
 user_pref("browser.tabs.cardPreview.enabled", true);
 // PREF: set default apperance to Dark
-user_pref("layout.css.prefers-color-scheme.content-override", 0);
+// user_pref("layout.css.prefers-color-scheme.content-override", 0);
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
