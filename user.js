@@ -6,8 +6,6 @@
  *
  * To make lasting changes to preferences, you will have to edit the user.js.
  */
-
-
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
