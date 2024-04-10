@@ -6,6 +6,25 @@
 @-moz-document url(chrome://browser/content/browser.xhtml) {
     /* Custom CSS */
 
+    /* Round Tabs and URL Bar */
+    #urlbar-background {
+        border-radius: 15px !important;
+    }
+      
+    .tab-background {
+        border-radius: 15px !important; 
+    }
+
+    /* Highlight background tabs so they stand out */
+    .tab-background:not([selected]) {
+        background-color: #3d3d3c !important;
+    }
+    
+    /* Highlight selected tab to theme background color to stand out */
+    .tab-background[selected] {
+        background-color: var(--newtab-background-color) !important;
+    }
+
     /* Hide 1password context menu item  id^= is wildcard*/
     menu[id^="_d634138d-c276-4fc8-924b-40a0ea21d284"] {
         display: none !important;
@@ -124,19 +143,10 @@
 
     /* Add a 1px highlight line at the bottom of the tab */
     #tabbrowser-tabs .tab-background {
-        /* border-top: solid 1px var(--identity-icon-color) !important; */
+        border-top: solid 1px var(--identity-icon-color) !important;
         border-bottom: solid 1px var(--identity-icon-color) !important;
-        /* border-left: solid 1px var(--identity-icon-color) !important;
-        border-right: solid 1px var(--identity-icon-color) !important; */
+        /* border-left: solid 1px var(--identity-icon-color) !important; */
+        /* border-right: solid 1px var(--identity-icon-color) !important; */
     }
 
-    /* Add a 2px highlight line at the top of the active tab */
-    #tabbrowser-tabs .tab-background[selected="true"] {
-        /* border-top: solid 2px var(--identity-icon-color, white) !important; */
-        border-bottom: solid 2px var(--identity-icon-color, white) !important;
-        /* border-left: solid 2px var(--identity-icon-color, white) !important;
-        border-right: solid 2px var(--identity-icon-color, white) !important; */
-    }
 }
-
-
