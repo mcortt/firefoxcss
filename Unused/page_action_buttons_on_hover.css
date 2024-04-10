@@ -1,0 +1,17 @@
+/* Page action-buttons "slide in" when cursor is on top of them and don't reserve space when not used */
+/* Hide Reader Mode button -  Use F9 for reader mode instead */
+#reader-mode-button {
+  display: none !important;
+}
+  
+.urlbar-page-action {
+  margin-inline-end: calc(-16px - 2 * var(--urlbar-icon-padding) );
+  transition: margin-inline-end 100ms linear;
+}
+
+#navigator-toolbox:hover .urlbar-page-action,
+#navigator-toolbox:focus-within .urlbar-page-action,
+.urlbar-page-action[open],
+.urlbar-page-action[open] ~ .urlbar-page-action {
+  margin-inline-end: 0px !important;
+}
