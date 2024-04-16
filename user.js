@@ -252,6 +252,8 @@ user_pref("privacy.fingerprintingProtection", true);
 user_pref("ui.key.menuAccessKeyFocuses", false);
 // PREF: enable tab previews
 user_pref("browser.tabs.cardPreview.enabled", true);
+// PREF: enable reader color options menu
+user_pref("reader.colors_menu.enabled", true);
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
