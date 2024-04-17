@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /* Import styles */
-@import url("navbar_tabs_oneliner_tabs_on_left.css");
+@import url("navbar_tabs_responsive_oneliner.css");
 
 @-moz-document url(chrome://browser/content/browser.xhtml) {
     /* Custom CSS */
