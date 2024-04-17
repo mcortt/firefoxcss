@@ -1,7 +1,5 @@
 @import url("window_control_placeholder_support.css");
 @import url("autohide_bookmarks.css");
-/* @import url("autocollapse_background_tabs.css"); */
-/* @import url("page_action_buttons_on_hover.css"); */
 
 @media screen and (min-width: 1278px) {
   :root[uidensity="compact"] {
@@ -24,8 +22,7 @@
     opacity: 1 !important;
   }
 
-  #scrollbutton-up,
-  #scrollbutton-down {
+  #scrollbutton-up, #scrollbutton-down {
     border-block-width: 2px !important;
   }
 
@@ -36,15 +33,14 @@
   :root[uidensity="touch"] #navigator-toolbox {
     --uc-toolbar-height: 44px;
   }
-  
-  :root[uidensity="compact"] #urlbar-container,
-  :root[uidensity="compact"] #urlbar {
+
+  :root[uidensity="compact"] #urlbar-container, :root[uidensity="compact"] #urlbar {
     --urlbar-container-height: var(--uc-toolbar-height);
     padding-block: 0;
     --urlbar-toolbar-height: var(--uc-toolbar-height);
   }
 
-  @media screen and (max-width: 1500px) {
+  @media screen and (max-width: 1560px) {
     .toolbarbutton-1:not(#back-button):not(#forward-button):not(#stop-reload-button):not(#fxa-toolbar-menu-button):not(#unified-extensions-button):not(#PanelUI-menu-button) {
       display: none !important;
     }
@@ -67,8 +63,7 @@
     margin-bottom: calc(0px - var(--uc-toolbar-height));
   }
 
-  #TabsToolbar > .titlebar-buttonbox-container,
-  .titlebar-spacer[type="post-tabs"] {
+  #TabsToolbar > .titlebar-buttonbox-container, .titlebar-spacer[type="post-tabs"] {
     display: none;
   }
 
@@ -85,8 +80,7 @@
     min-height: var(--uc-toolbar-height) !important;
   }
 
-  #tabbrowser-tabs,
-  .tabbrowser-tab[pinned] {
+  #tabbrowser-tabs, .tabbrowser-tab[pinned] {
     min-height: var(--tab-min-height) !important;
   }
 

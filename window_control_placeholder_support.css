@@ -4,8 +4,7 @@
   }
 }
 
-.titlebar-buttonbox, 
-#window-controls {
+.titlebar-buttonbox, #window-controls {
   color: var(--toolbar-color);
 }
 

@@ -1,18 +1,18 @@
 :root {
-  --uc-autohide-toolbar-delay: 400ms; /*adjust autohide/show time here */
+  --uc-autohide-toolbar-delay: 400ms;
   --uc-bm-height: 20px;
-  --uc-bm-padding: 7px;
+  --uc-bm-padding: 4px;
   --uc-autohide-toolbar-focus-rotation: 0deg;
   --uc-autohide-toolbar-hover-rotation: 0deg;
 }
 
 :root[uidensity="touch"] #PersonalToolbar {
-  --uc-bm-padding: 10px;
+  --uc-bm-padding: 7px;
 }
 
 :root[uidensity="compact"] #PersonalToolbar {
   --toolbarbutton-outer-padding: 1px !important;
-  --uc-bm-padding: 5px;
+  --uc-bm-padding: 2px;
 }
 
 #PersonalToolbar:not([customizing]) {
@@ -47,15 +47,14 @@
   border-bottom-color: transparent !important;
 }
 
-/* Push the web content down when the bookmarks toolbar is visible */
 #navigator-toolbox:hover ~ #browser,
 #navigator-toolbox:focus-within ~ #browser {
-    transition-delay: 100ms !important;
-    transform: translateY(calc(var(--uc-bm-height) + var(--uc-bm-padding) + 1px));
-    transition: transform 135ms;
+  transition-delay: 100ms !important;
+  transform: translateY(calc(var(--uc-bm-height) + var(--uc-bm-padding) + 1px));
+  transition: transform 135ms;
 }
 
 #navigator-toolbox:not(:hover):not(:focus-within) ~ #browser {
-    transform: translateY(0);
-    transition: transform 135ms linear var(--uc-autohide-toolbar-delay);
+  transform: translateY(0);
+  transition: transform 135ms linear var(--uc-autohide-toolbar-delay);
 }
