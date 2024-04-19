@@ -1,10 +1,25 @@
-@charset "UTF-8";
+        @charset    "U      -moz-context-properties: fill;TF-8";
 
 /* Import styles */
 @import url("navbar_tabs_responsive_oneliner.css");
 
 @-moz-document url(chrome://browser/content/browser.xhtml) {
     /* Custom CSS */
+
+    /* Hide specified tab context menu items */
+    #tabContextMenu menuseparator,
+    #context_openANewTab,
+    #context_reloadTab,
+    #context_closeTab,
+    #context_closeTabOptions,
+    #context_moveTabOptions,
+    #context_bookmarkTab,
+    #context_duplicateTab,
+    #context_duplicateTabs,
+    #context_undoCloseTab,
+    #context_selectAllTabs{
+        display: none !important;
+    }
 
     /* Round Tabs and URL Bar */
     #urlbar-background {
