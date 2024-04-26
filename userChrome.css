@@ -31,12 +31,16 @@
 
     /* Highlight background tabs so they stand out */
     .tab-background:not([selected]) {
-        background-color: #3d3d3c !important;
+        background-color: var(--toolbar-bgcolor);
+        filter: invert(10%);
     }
     
     /* Highlight selected tab to theme background color to stand out */
     .tab-background[selected] {
         background-color: var(--toolbar-field-background-color) !important;
+    }
+    .tab-text[selected] {
+        color: var(--toolbar-field-color) !important;
     }
 
     /* Hide 1password context menu item  id^= is wildcard*/
