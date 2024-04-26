@@ -36,7 +36,7 @@
     
     /* Highlight selected tab to theme background color to stand out */
     .tab-background[selected] {
-        background-color: var(--newtab-background-color) !important;
+        background-color: var(--toolbar-field-background-color) !important;
     }
 
     /* Hide 1password context menu item  id^= is wildcard*/
