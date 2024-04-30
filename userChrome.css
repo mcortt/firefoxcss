@@ -14,6 +14,7 @@
     #context_bookmarkTab,
     #context_duplicateTab,
     #context_duplicateTabs,
+    #context_closeDuplicateTabs,
     #context_undoCloseTab,
     #context_selectAllTabs{
         display: none !important;
