@@ -4,6 +4,13 @@
 @-moz-document url(chrome://browser/content/browser.xhtml) {
     /* Custom CSS */
 
+    /* Theme urlbar action buttons */
+    .urlbarView-action-btn, .urlbarView-global-action-btn {
+        color: var(--toolbar-field-color) !important;
+        background-color: var(--toolbar-field-background-color) !important;
+        border: 1px solid var(--toolbar-field-color) !important;
+    }
+
     /* Hide specified tab context menu items */
     #tabContextMenu menuseparator,
     #context_openANewTab,
