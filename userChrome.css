@@ -169,7 +169,7 @@
     #tabbrowser-tabs .tab-background {
         border-top: solid 1px var(--identity-icon-color) !important;
         border-bottom: solid 1px var(--identity-icon-color) !important;
-        /* border-left: solid 1px var(--identity-icon-color) !important; */
-        /* border-right: solid 1px var(--identity-icon-color) !important; */
+        border-left: solid 1px var(--identity-icon-color) !important;
+        border-right: solid 1px var(--identity-icon-color) !important;
     }
 }
