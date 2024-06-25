@@ -153,9 +153,9 @@ user_pref("webchannel.allowObject.urlWhitelist", "");
 // user_pref("browser.newtabpage.activity-stream.telemetry", false);
 
 /** EXPERIMENTS ***/
-user_pref("app.shield.optoutstudies.enabled", false);
-user_pref("app.normandy.enabled", false);
-user_pref("app.normandy.api_url", "");
+// user_pref("app.shield.optoutstudies.enabled", false);
+// user_pref("app.normandy.enabled", true);
+// user_pref("app.normandy.api_url", "");
 
 /** CRASH REPORTS ***/
 // user_pref("breakpad.reportURL", "");
