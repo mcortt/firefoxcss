@@ -11,6 +11,12 @@
         border: 1px solid var(--toolbar-field-color) !important;
     }
 
+    /* Theme the color of the new and old sidebar, and remove borders */
+    .wrapper, #sidebar, .sidebar-splitter {
+        background-color: var(--toolbar-bgcolor) !important;
+        border: none !important;
+    }
+    
     /* Hide specified tab context menu items */
     #tabContextMenu menuseparator,
     #context_openANewTab,

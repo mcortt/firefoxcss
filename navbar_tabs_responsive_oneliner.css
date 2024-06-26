@@ -11,9 +11,8 @@
   
   /* Modify these to change relative widths or default height */
   #navigator-toolbox{
-    --uc-navigationbar-width: 40vw;
+    --uc-navigationbar-width: 45vw;
     --uc-toolbar-height: 40px;
-    --uc-urlbar-min-width: 50vw; /* minimum width for opened urlbar */
   }
 
   #scrollbutton-up,
@@ -33,33 +32,29 @@
   :root[uidensity="touch"] #navigator-toolbox{ --uc-toolbar-height: 44px; }
 
   #TabsToolbar{
-    margin-left: var(--uc-navigationbar-width);
+    margin-left: 0;
+    margin-right: var(--uc-navigationbar-width);
     --tabs-navbar-shadow-size: 0px;
   }
   #tabbrowser-tabs{
   --tab-min-height: calc(var(--uc-toolbar-height) - 2 * var(--tab-block-margin,0px)) !important;
-}
+  }
+  .titlebar-buttonbox-container {
+    display: none;
+  }
   
   /* This isn't useful when tabs start in the middle of the window */
-  .titlebar-spacer[type="pre-tabs"]{ display: none }
+  .titlebar-spacer{
+    display: none;
+  }
   
   #navigator-toolbox > #nav-bar{
-    margin-right:calc(100vw - var(--uc-navigationbar-width));
+    margin-right: 0;
+    margin-left: calc(100vw - var(--uc-navigationbar-width));;
     margin-top: calc(0px - var(--uc-toolbar-height));
   }
 
-  /* Window drag space  */
-  :root[tabsintitlebar="true"] #nav-bar{ padding-left: var(--uc-window-drag-space-width) !important }
 
-  /* 1px margin on touch density causes tabs to be too high */
-  .tab-close-button{ margin-top: 0 !important }
-
-  /* Make opened urlbar overlay the toolbar */
-  #urlbar[open]:focus-within{ min-width: var(--uc-urlbar-min-width,none) !important; }
-
-  /* Hide dropdown placeholder */
-  #urlbar-container:not(:hover) .urlbar-history-dropmarker{ margin-inline-start: -28px; }
-  
 }
 /* Fix customization view */
 #customization-panelWrapper > .panel-arrowbox > .panel-arrow{ margin-inline-end: initial !important; }
