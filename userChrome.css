@@ -11,6 +11,9 @@
         border: 1px solid var(--toolbar-field-color) !important;
     }
 
+    /* Disable full screen animation */
+    #navigator-toolbox[fullscreenShouldAnimate] { transition: none !important; }
+
     /* Theme the color of the new and old sidebar, and remove borders */
     .wrapper, #sidebar, .sidebar-splitter {
         background-color: var(--toolbar-bgcolor) !important;

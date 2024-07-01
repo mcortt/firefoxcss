@@ -1,15 +1,7 @@
-//
-/* You may copy+paste this file and use it as it is.
- *
- * If you make changes to your about:config while the program is running, the
- * changes will be overwritten by the user.js when the application restarts.
- *
- * To make lasting changes to preferences, you will have to edit the user.js.
- */
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: 122.1                                                           *
+ * version: 126                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
@@ -41,18 +33,18 @@ user_pref("network.http.max-persistent-connections-per-server", 10);
 user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5);
 user_pref("network.http.pacing.requests.enabled", false);
 user_pref("network.dnsCacheExpiration", 3600);
-user_pref("network.dns.max_high_priority_threads", 8);
 user_pref("network.ssl_tokens_cache_capacity", 10240);
 
 /** SPECULATIVE LOADING ***/
 user_pref("network.dns.disablePrefetch", true);
+user_pref("network.dns.disablePrefetchFromHTTPS", true);
 user_pref("network.prefetch-next", false);
 user_pref("network.predictor.enabled", false);
+user_pref("network.predictor.enable-prefetch", false);
 
 /** EXPERIMENTAL ***/
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
 user_pref("dom.enable_web_task_scheduling", true);
-user_pref("layout.css.has-selector.enabled", true);
 user_pref("dom.security.sanitizer.enabled", true);
 
 /****************************************************************************
@@ -88,7 +80,8 @@ user_pref("privacy.history.custom", true);
 /** SEARCH / URL BAR ***/
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.urlbar.update2.engineAliasRefresh", true);
-user_pref("browser.search.suggest.enabled", false);
+// user_pref("browser.search.suggest.enabled", false);
+ user_pref("browser.search.suggest.enabled", true);
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 user_pref("browser.formfill.enable", false);
@@ -148,13 +141,12 @@ user_pref("webchannel.allowObject.urlWhitelist", "");
 // user_pref("toolkit.telemetry.coverage.opt-out", true);
 // user_pref("toolkit.coverage.opt-out", true);
 // user_pref("toolkit.coverage.endpoint.base", "");
-// user_pref("browser.ping-centre.telemetry", false);
 // user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 // user_pref("browser.newtabpage.activity-stream.telemetry", false);
 
 /** EXPERIMENTS ***/
 // user_pref("app.shield.optoutstudies.enabled", false);
-// user_pref("app.normandy.enabled", true);
+// user_pref("app.normandy.enabled", false);
 // user_pref("app.normandy.api_url", "");
 
 /** CRASH REPORTS ***/
@@ -189,6 +181,7 @@ user_pref("browser.compactmode.show", true);
 user_pref("browser.display.focus_ring_on_anything", true);
 user_pref("browser.display.focus_ring_style", 0);
 user_pref("browser.display.focus_ring_width", 0);
+//user_pref("layout.css.prefers-color-scheme.content-override", 2);
 user_pref("layout.css.prefers-color-scheme.content-override", 0);
 user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
 
@@ -215,6 +208,7 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 user_pref("extensions.pocket.enabled", false);
 
 /** DOWNLOADS ***/
+//user_pref("browser.download.always_ask_before_handling_new_types", true);
 user_pref("browser.download.always_ask_before_handling_new_types", false);
 user_pref("browser.download.manager.addToRecentDocs", false);
 
@@ -233,6 +227,8 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 // visit https://github.com/yokoffing/Betterfox/wiki/Common-Overrides
 // visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
 // Enter your personal overrides below this line:
+// PREF: enable CSS Customization
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 // PREF: allow websites to ask you for your location
 user_pref("permissions.default.geo", 0);
 // PREF: restore search engine suggestions
