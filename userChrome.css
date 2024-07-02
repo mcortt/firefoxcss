@@ -43,6 +43,9 @@
     .tab-background {
         border-radius: 15px !important; 
     }
+    #identity-icon-box {
+        border-radius: 15px !important;
+    }
 
     /* Highlight background tabs so they stand out */
     .tab-background:not([selected]) {
