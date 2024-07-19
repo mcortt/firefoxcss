@@ -2,24 +2,153 @@
 @import url("navbar_tabs_responsive_oneliner.css");
 
 @-moz-document url(chrome://browser/content/browser.xhtml) {
-    /* Custom CSS */
-
+/* Custom CSS */
+	
+/*///////////////////////////////////*/
+/* MATCH THEMEING */
+/*///////////////////////////////////*/
+	
     /* Theme urlbar action buttons */
     .urlbarView-action-btn, .urlbarView-global-action-btn {
         color: var(--toolbar-field-color) !important;
         background-color: var(--toolbar-field-background-color) !important;
         border: 1px solid var(--toolbar-field-color) !important;
     }
-
-    /* Disable full screen animation */
-    #navigator-toolbox[fullscreenShouldAnimate] { transition: none !important; }
-
-    /* Theme the color of the new and old sidebar, and remove borders */
+	
+	/* Theme the color of the new and old sidebar, and remove borders */
     .wrapper, #sidebar, .sidebar-splitter {
         background-color: var(--toolbar-bgcolor) !important;
         border: none !important;
     }
+	
+	/*Theme Right-Click Menu too*/
+    .menupopup-arrowscrollbox {
+        background-color: var(--arrowpanel-background, --toolbar-field-background-color) !important;
+        border-color: var(--arrowpanel-border-color, --toolbar-field-color) !important;
+        color: var(--arrowpanel-color, --toolbar-field-color) !important;
+    }
+    menuitem:hover {
+        background-color: var(--toolbar-field-color) !important;
+        color: var(--toolbar-field-background-color) !important;
+    }
+	
+    /*theme Right-Click Menu sub-menus (with the arrows) on Hover*/
+    menu:where([_moz-menuactive="true"]:not([disabled="true"])), menuitem:where([_moz-menuactive="true"]:not([disabled="true"])) {
+        background-color: var(--toolbar-field-color) !important;
+        color: var(--toolbar-field-background-color) !important;
+    }
+	
+	
+/*///////////////////////////////////*/
+/*TAB HIGHLIGHTING*/
+/*///////////////////////////////////*/
+	
+    /* Highlight selected tab to theme background color to stand out */
+    .tab-background[selected] {
+        background-color: var(--toolbar-field-background-color) !important;
+    }
+    .tab-text[selected] {
+        color: var(--toolbar-field-color) !important;
+    }
+	
+    /*Theme toolbar based on container color....NEXT THREE SECTIONS*/
+    :root:has(.tabbrowser-tab[selected].identity-color-blue) {
+        .tab-background[selected]{background: royalblue !important;}
+        .tab-text[selected]{color: white !important;}
+    }
+    :root:has(.tabbrowser-tab[selected].identity-color-purple) {
+        .tab-background[selected]{background: purple !important;}
+        .tab-text[selected]{color: white !important;}
+    }
+    :root:has(.tabbrowser-tab[selected].identity-color-green) {
+        .tab-background[selected]{background: green !important;}
+        .tab-text[selected]{color: white !important;}
+    }
+	
+    /* Hide the 1px container line */
+    #tabbrowser-tabs .tab-context-line {
+        display: none;
+    }
+
+    /* BORDER ALL TABS*/
+    /* #tabbrowser-tabs .tab-background {
+        border-top: solid 1px var(--identity-icon-color, var(--toolbar-field-color)) !important;
+        border-bottom: solid 1px var(--identity-icon-color, var(--toolbar-field-color)) !important;
+        border-left: solid 1px var(--identity-icon-color, var(--toolbar-field-color)) !important;
+        border-right: solid 1px var(--identity-icon-color, var(--toolbar-field-color)) !important;
+    } */
+
+    /*OR JUST BORDER THE CONTAINER TABS AND HIGHLIGHT NON-CONTAINER BY SHADING THEM LIGHTER*/
+    /* Highlight background tabs so they stand out */
+    .tab-background:not([selected]) {
+        background-color: var(--toolbar-bgcolor);
+        filter: invert(10%);
+    }
+    /* Add a 1px highlight line around all tabs that is themed to its container */
+    #tabbrowser-tabs .tab-background {
+        border-top: solid 1px var(--identity-icon-color) !important;
+        border-bottom: solid 1px var(--identity-icon-color) !important;
+        border-left: solid 1px var(--identity-icon-color) !important;
+        border-right: solid 1px var(--identity-icon-color) !important;
+    }
+
+
+/*///////////////////////////////////*/
+/*UI LAYOUT CHANGES*/
+/*///////////////////////////////////*/
+	
+    /* Round Tabs and URL Bar */
+    #urlbar-background {
+        border-radius: 15px !important;
+    }
+    .tab-background {
+        border-radius: 15px !important; 
+    }
+    #identity-icon-box {
+        border-radius: 15px !important;
+    }
+	
+    /* Remove max sidebar limit*/
+    #sidebar-box {max-width: 50vw !important;min-width: 5vw !important; }
     
+	/* Center Bookmarks Bar */
+    #PlacesToolbarItems {
+        display: flex !important;
+        justify-content: center !important;
+    }
+	
+	/* Move Find Bar above the page*/
+    .browserContainer > findbar {
+        order: -1 !important; 
+        border-top: none !important;
+    } 
+	
+    /* Center Find Bar content */
+    .findbar-container {
+        justify-content: center !important;
+    }
+	
+    /* Hide Find Bar when not in use */
+    findbar:not(:focus-within) { 
+        height: 0px !important; 
+        overflow: hidden !important; 
+        padding: 0px !important; 
+        margin: 0px !important; 
+    }
+	
+	/* Hide Match Diacritics */
+    .findbar-match-diacritics {
+        display: none !important;
+    }
+	
+    /* Disable full screen animation */
+    #navigator-toolbox[fullscreenShouldAnimate] { transition: none !important; }
+
+
+/*///////////////////////////////////*/
+/*HIDE UNUSED ELEMETS*/
+/*///////////////////////////////////*/
+	
     /* Hide specified tab context menu items */
     #tabContextMenu menuseparator,
     #context_openANewTab,
@@ -35,153 +164,46 @@
     #context_selectAllTabs{
         display: none !important;
     }
-
-    /* Round Tabs and URL Bar */
-    #urlbar-background {
-        border-radius: 15px !important;
-    }
-    .tab-background {
-        border-radius: 15px !important; 
-    }
-    #identity-icon-box {
-        border-radius: 15px !important;
-    }
-
-    /* Highlight background tabs so they stand out */
-    .tab-background:not([selected]) {
-        background-color: var(--toolbar-bgcolor);
-        filter: invert(10%);
-    }
-    
-    /* Highlight selected tab to theme background color to stand out */
-    .tab-background[selected] {
-        background-color: var(--toolbar-field-background-color) !important;
-    }
-    .tab-text[selected] {
-        color: var(--toolbar-field-color) !important;
-    }
-
-    /* Hide 1password context menu item  id^= is wildcard*/
+	
+	/* Hide 1password context menu item  id^= is wildcard*/
     menu[id^="_d634138d-c276-4fc8-924b-40a0ea21d284"] {
         display: none !important;
     }
-
-    /* Hide container page action button and reader mode button (F9 to use) */
+	
+	/* Hide container page action button and reader mode button (F9 to use) */
     #pageAction-urlbar-_testpilot-containers {
         display: none !important
     }
     #reader-mode-button {
         display: none !important;
     }
-
-    /* Remove max sidebar limit*/
-    #sidebar-box {max-width: 50vw !important;min-width: 5vw !important; }
-
-    /* Hide navigation buttons by default */
+	
+	/* Hide navigation buttons by default */
     #back-button[disabled], #forward-button[disabled] {
         visibility: hidden !important;
         width: 0 !important;
         padding: 0 !important;
     }
-
+	
     /* Show navigation buttons when they are not disabled */
     #back-button:not([disabled]), #forward-button:not([disabled]) {
         visibility: visible !important;
         width: auto !important;
         padding: initial !important;
     }
-
-    /* Reduce left spacer on non-maximized windows */
+	
+    /* Hide left spacer on non-maximized windows */
     .titlebar-spacer[type="pre-tabs"] {
         display: none !important;
     }
-
-    /* remove extension name in address bar */
+	
+	/* Hide extension name in address bar */
     #identity-box.extensionPage #identity-icon-label {
         display: none !important;
     }
-    
-    /* Move Find Bar above the page*/
-    .browserContainer > findbar {
-        order: -1 !important; 
-        border-top: none !important;
-    } 
-    
-    /* Center Find Bar content */
-    .findbar-container {
-        justify-content: center !important;
-    }
-    
-    /* Hide Match Diacritics */
-    .findbar-match-diacritics {
-        display: none !important;
-    }
-
-    /* Center Bookmarks Bar */
-    #PlacesToolbarItems {
-        display: flex !important;
-        justify-content: center !important;
-    }
-
+	
     /* Hide All Tabs Button*/
     #alltabs-button {
         display: none !important;
-    }
-
-    /*Theme Right-Click Menu too*/
-    .menupopup-arrowscrollbox {
-        background-color: var(--arrowpanel-background, --toolbar-field-background-color) !important;
-        border-color: var(--arrowpanel-border-color, --toolbar-field-color) !important;
-        color: var(--arrowpanel-color, --toolbar-field-color) !important;
-    }
-    
-    /*Theme Right-Click Menu On Hover too*/
-    menuitem:hover {
-        background-color: var(--toolbar-field-color) !important;
-        color: var(--toolbar-field-background-color) !important;
-    }
-
-    /*theme Right-Click Menu sub-menus (with the arrows) on Hover*/
-    menu:where([_moz-menuactive="true"]:not([disabled="true"])), menuitem:where([_moz-menuactive="true"]:not([disabled="true"])) {
-        background-color: var(--toolbar-field-color) !important;
-        color: var(--toolbar-field-background-color) !important;
-    }
-
-    /* Hide Find Bar when not in use */
-    findbar:not(:focus-within) { 
-        height: 0px !important; 
-        overflow: hidden !important; 
-        padding: 0px !important; 
-        margin: 0px !important; 
-    }
-
-    /*Theme toolbar based on container color....NEXT THREE SECTIONS*/
-    :root:has(.tabbrowser-tab[selected].identity-color-blue) {
-        .tab-background[selected]{background: royalblue !important;}
-        .tab-text[selected]{color: white !important;}
-    }
-    :root:has(.tabbrowser-tab[selected].identity-color-purple) {
-        .tab-background[selected]{background: purple !important;}
-        .tab-text[selected]{color: white !important;}
-    }
-    :root:has(.tabbrowser-tab[selected].identity-color-green) {
-        .tab-background[selected]{background: green !important;}
-        .tab-text[selected]{color: white !important;}
-    }
-
-    /*** Container Indicator To Bottom Of Tab ***/
-    /* Active tab color for container tabs will use container color */
-
-    /* Hide the 1px container line */
-    #tabbrowser-tabs .tab-context-line {
-        display: none;
-    }
-
-    /* Add a 1px highlight line at the bottom of the tab */
-    #tabbrowser-tabs .tab-background {
-        border-top: solid 1px var(--identity-icon-color) !important;
-        border-bottom: solid 1px var(--identity-icon-color) !important;
-        border-left: solid 1px var(--identity-icon-color) !important;
-        border-right: solid 1px var(--identity-icon-color) !important;
     }
 }

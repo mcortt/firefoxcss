@@ -1,7 +1,7 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: 126                                                             *
+ * version: 128                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
@@ -52,8 +52,8 @@ user_pref("dom.security.sanitizer.enabled", true);
 ****************************************************************************/
 /** TRACKING PROTECTION ***/
 user_pref("browser.contentblocking.category", "strict");
-user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com");
-user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
+user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com");
+user_pref("urlclassifier.features.socialtracking.skipURLs", "*.twitter.com, *.twimg.com");
 user_pref("network.cookie.sameSite.noneRequiresSecure", true);
 user_pref("browser.download.start_downloads_in_tmp_dir", true);
 user_pref("browser.helperApps.deleteTempFileOnExit", true);
@@ -78,12 +78,14 @@ user_pref("browser.sessionstore.interval", 60000);
 user_pref("privacy.history.custom", true);
 
 /** SEARCH / URL BAR ***/
+user_pref("browser.urlbar.trimHttps", true);
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.urlbar.update2.engineAliasRefresh", true);
-// user_pref("browser.search.suggest.enabled", false);
- user_pref("browser.search.suggest.enabled", true);
+user_pref("browser.search.suggest.enabled", false);
+user_pref("browser.urlbar.quicksuggest.enabled", false);
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
+user_pref("browser.urlbar.groupLabels.enabled", false);
 user_pref("browser.formfill.enable", false);
 user_pref("security.insecure_connection_text.enabled", true);
 user_pref("security.insecure_connection_text.pbmode.enabled", true);
@@ -101,8 +103,6 @@ user_pref("editor.truncate_user_pastes", false);
 
 /** MIXED CONTENT + CROSS-SITE ***/
 user_pref("security.mixed_content.block_display_content", true);
-user_pref("security.mixed_content.upgrade_display_content", true);
-user_pref("security.mixed_content.upgrade_display_content.image", true);
 user_pref("pdfjs.enableScripting", false);
 user_pref("extensions.postDownloadThirdPartyPrompt", false);
 
@@ -122,7 +122,6 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 /** MOZILLA ***/
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
-user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 user_pref("permissions.manager.defaultsUrl", "");
 user_pref("webchannel.allowObject.urlWhitelist", "");
 
@@ -158,6 +157,7 @@ user_pref("webchannel.allowObject.urlWhitelist", "");
 user_pref("captivedetect.canonicalURL", "");
 user_pref("network.captive-portal-service.enabled", false);
 user_pref("network.connectivity-service.enabled", false);
+user_pref("dom.private-attribution.submission.enabled", false);
 
 /****************************************************************************
  * SECTION: PESKYFOX                                                        *
@@ -181,8 +181,7 @@ user_pref("browser.compactmode.show", true);
 user_pref("browser.display.focus_ring_on_anything", true);
 user_pref("browser.display.focus_ring_style", 0);
 user_pref("browser.display.focus_ring_width", 0);
-//user_pref("layout.css.prefers-color-scheme.content-override", 2);
-user_pref("layout.css.prefers-color-scheme.content-override", 0);
+user_pref("layout.css.prefers-color-scheme.content-override", 2);
 user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
 
 /** COOKIE BANNER HANDLING ***/
@@ -208,8 +207,7 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 user_pref("extensions.pocket.enabled", false);
 
 /** DOWNLOADS ***/
-//user_pref("browser.download.always_ask_before_handling_new_types", true);
-user_pref("browser.download.always_ask_before_handling_new_types", false);
+user_pref("browser.download.always_ask_before_handling_new_types", true);
 user_pref("browser.download.manager.addToRecentDocs", false);
 
 /** PDF ***/
@@ -227,14 +225,22 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 // visit https://github.com/yokoffing/Betterfox/wiki/Common-Overrides
 // visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
 // Enter your personal overrides below this line:
-// PREF: enable CSS Customization
-user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+
+///// BETTERFOX OVERRIDES /////
+// PREF: enable urlbar group labels
+user_pref("browser.urlbar.groupLabels.enabled", true);
+// PREF: dont ask to save new file types.
+user_pref("browser.download.always_ask_before_handling_new_types", false);
+// PREF: enable CSS prefers-color-scheme
+user_pref("layout.css.prefers-color-scheme.content-override", 0);
+// PREF: enable Firefox Suggest
+user_pref("browser.search.suggest.enabled", true);
 // PREF: allow websites to ask you for your location
 user_pref("permissions.default.geo", 0);
-// PREF: restore search engine suggestions
-user_pref("browser.search.suggest.enabled", true);
-// PREF: enable container tabs
-user_pref("privacy.userContext.enabled", true);
+
+///// UNIQUE /////
+// PREF: use Mozilla Location Services
+user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 // PREF: enable GPU-accelerated Canvas2D [WINDOWS]
 user_pref("gfx.canvas.accelerated", true);
 // PREF: prevent keyboard shortcut hijacking
@@ -242,14 +248,12 @@ user_pref("permissions.default.shortcuts", 2);
 // PREF: open bookmarks in new tabs always
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 // PREF: enable fingerprinting resistance/protection
-// user_pref("privacy.resistFingerprinting", true);
 user_pref("privacy.fingerprintingProtection", true);
 // PREF: disable ALT key bringing up titlebar.
 user_pref("ui.key.menuAccessKeyFocuses", false);
-// PREF: enable tab previews
-user_pref("browser.tabs.cardPreview.enabled", true);
-// PREF: enable reader color options menu
-user_pref("reader.colors_menu.enabled", true);
+// PREF: clear download and formdata
+user_pref("privacy.clearOnShutdown.downloads", true);
+user_pref("privacy.clearOnShutdown.formdata", true)
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
