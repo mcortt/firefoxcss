@@ -1,8 +1,0 @@
-
-    /* Hide URL Bar except when focused or hovered by pushing page down */
-    :root[sessionrestored] #nav-bar{ max-height:0; min-height: 0 !important }
-    #navigator-toolbox:hover > #nav-bar, #nav-bar.browser-toolbar:focus-within{ max-height: unset; min-height: unset !important; }
-
-    /* Hide Bookmarks Bar until focused or hovered by pushing page down */
-    #PersonalToolbar {visibility: collapse !important;}
-    #navigator-toolbox:hover > #PersonalToolbar, #nav-bar.browser-toolbar:focus-within + #PersonalToolbar { visibility: visible !important; }}
