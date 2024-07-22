@@ -254,6 +254,9 @@ user_pref("ui.key.menuAccessKeyFocuses", false);
 // PREF: clear download and formdata
 user_pref("privacy.clearOnShutdown.downloads", true);
 user_pref("privacy.clearOnShutdown.formdata", true)
+// PREF: disable autofill
+user_pref("extensions.formautofill.addresses.enabled", false);
+user_pref("extensions.formautofill.creditCards.enabled", false);
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
