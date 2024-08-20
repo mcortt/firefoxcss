@@ -1,5 +1,11 @@
 /* Import styles */
-@import url("navbar_tabs_responsive_oneliner.css");
+/* Vertical Tabs */
+@import url("autohide_bookmarks.css");
+#TabsToolbar{
+    display: none !important;
+}
+/* Horizontal Tabs */
+/* @import url("navbar_tabs_responsive_oneliner.css"); */
 
 @-moz-document url(chrome://browser/content/browser.xhtml) {
 /* Custom CSS */
@@ -14,18 +20,12 @@
         background-color: var(--toolbar-field-background-color) !important;
         border: 1px solid var(--toolbar-field-color) !important;
     }
-	
-	/* Theme the color of the new and old sidebar, and remove borders */
-    .wrapper, #sidebar, .sidebar-splitter {
-        background-color: var(--toolbar-bgcolor) !important;
-        border: none !important;
-    }
-	
+		
 	/*Theme Right-Click Menu too*/
     .menupopup-arrowscrollbox {
-        background-color: var(--arrowpanel-background, --toolbar-field-background-color) !important;
-        border-color: var(--arrowpanel-border-color, --toolbar-field-color) !important;
-        color: var(--arrowpanel-color, --toolbar-field-color) !important;
+        background-color: var(--toolbar-field-background-color) !important;
+        border-color: var(--toolbar-field-focus-color) !important;
+        color: var(--toolbar-field-color) !important;
     }
     menuitem:hover {
         background-color: var(--toolbar-field-color) !important;
@@ -37,8 +37,21 @@
         background-color: var(--toolbar-field-color) !important;
         color: var(--toolbar-field-background-color) !important;
     }
+	#appMenu-popup {
+        background-color: transparent !important;
+        border-color: var(--toolbar-field-focus-color) !important;
+        color: var(--toolbar-field-color) !important;
+    }
 	
-	
+    /* Theme the Main Menu */
+    #appMenu-multiView{
+        background-color: var(--toolbar-field-background-color) !important;
+        color: var(--toolbar-field-color) !important;
+    }
+    #appMenu-multiView .subviewbutton:hover {
+        background-color: var(--toolbar-field-color) !important; /* Change to your desired highlight color */
+        color: var(--toolbar-field-background-color) !important; /* Change to your desired text color */
+    }
 /*///////////////////////////////////*/
 /*TAB HIGHLIGHTING*/
 /*///////////////////////////////////*/
