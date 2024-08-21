@@ -18,6 +18,8 @@
     #urlbar:focus-within {
         border: 2px solid var(--toolbar-color) !important; /*use --lwt-tab-line-color for most themes*/
         border-radius: 15px !important; 
+        --urlbarView-highlight-background: var(--toolbar-color) !important;
+        --urlbarView-highlight-color: var(--toolbar-bgcolor) !important;
     }
     /* Hide normal urlbar highlight blue border */
     #nav-bar { 
