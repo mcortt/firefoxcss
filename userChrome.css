@@ -14,6 +14,10 @@
 /* MATCH THEMEING */
 /*///////////////////////////////////*/
 	
+    /* Change urlbar highlight color */
+*   ::-moz-selection { 
+        background: var(--toolbar-color) !important; /* the background color of the highlight */ 
+        color: var(--toolbar-bgcolor) !important; /* the color of the text within the highlight */ }
     /* Change urlbar focus highlight color */
     #urlbar:focus-within {
         border: 2px solid var(--toolbar-color) !important; /*use --lwt-tab-line-color for most themes*/
@@ -102,7 +106,7 @@
         border-left: solid 1px var(--identity-icon-color, var(--toolbar-field-color)) !important;
         border-right: solid 1px var(--identity-icon-color, var(--toolbar-field-color)) !important;
     } */
-
+ 
     /*OR JUST BORDER THE CONTAINER TABS AND HIGHLIGHT NON-CONTAINER BY SHADING THEM LIGHTER*/
     /* Highlight background tabs so they stand out */
     .tab-background:not([selected]) {
