@@ -1,19 +1,29 @@
 /* Import styles */
 /* Vertical Tabs */
-@import url("autohide_bookmarks.css");
+/* @import url("autohide_bookmarks.css");
 #TabsToolbar{
     display: none !important;
-}
+} */
 /* Horizontal Tabs */
-/* @import url("navbar_tabs_responsive_oneliner.css"); */
+@import url("navbar_tabs_responsive_oneliner.css");
 
 @-moz-document url(chrome://browser/content/browser.xhtml) {
+
 /* Custom CSS */
-	
 /*///////////////////////////////////*/
 /* MATCH THEMEING */
 /*///////////////////////////////////*/
 	
+    /* Change urlbar focus highlight color */
+    #urlbar:focus-within {
+        border: 2px solid var(--toolbar-color) !important; /*use --lwt-tab-line-color for most themes*/
+        border-radius: 15px !important; 
+    }
+    /* Hide normal urlbar highlight blue border */
+    #nav-bar { 
+        --toolbar-field-focus-border-color: transparent !important; 
+    }
+
     /* Theme urlbar action buttons */
     .urlbarView-action-btn, .urlbarView-global-action-btn {
         color: var(--toolbar-field-color) !important;
