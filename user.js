@@ -1,7 +1,7 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: 128                                                             *
+ * version: 129                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
@@ -79,6 +79,7 @@ user_pref("privacy.history.custom", true);
 
 /** SEARCH / URL BAR ***/
 user_pref("browser.urlbar.trimHttps", true);
+user_pref("browser.urlbar.untrimOnUserInteraction.featureGate", true);
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.urlbar.update2.engineAliasRefresh", true);
 user_pref("browser.search.suggest.enabled", false);
@@ -93,7 +94,6 @@ user_pref("network.IDN_show_punycode", true);
 
 /** HTTPS-FIRST POLICY ***/
 user_pref("dom.security.https_first", true);
-user_pref("dom.security.https_first_schemeless", true);
 
 /** PASSWORDS ***/
 user_pref("signon.formlessCapture.enabled", false);
@@ -157,7 +157,6 @@ user_pref("webchannel.allowObject.urlWhitelist", "");
 user_pref("captivedetect.canonicalURL", "");
 user_pref("network.captive-portal-service.enabled", false);
 user_pref("network.connectivity-service.enabled", false);
-user_pref("dom.private-attribution.submission.enabled", false);
 
 /****************************************************************************
  * SECTION: PESKYFOX                                                        *
@@ -171,9 +170,10 @@ user_pref("browser.shell.checkDefaultBrowser", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 user_pref("browser.preferences.moreFromMozilla", false);
-user_pref("browser.tabs.tabmanager.enabled", false);
 user_pref("browser.aboutConfig.showWarning", false);
 user_pref("browser.aboutwelcome.enabled", false);
+user_pref("browser.tabs.tabmanager.enabled", false);
+user_pref("browser.profiles.enabled", true);
 
 /** THEME ADJUSTMENTS ***/
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
@@ -183,6 +183,7 @@ user_pref("browser.display.focus_ring_style", 0);
 user_pref("browser.display.focus_ring_width", 0);
 user_pref("layout.css.prefers-color-scheme.content-override", 2);
 user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
+user_pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true);
 
 /** COOKIE BANNER HANDLING ***/
 user_pref("cookiebanners.service.mode", 1);
@@ -207,7 +208,6 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 user_pref("extensions.pocket.enabled", false);
 
 /** DOWNLOADS ***/
-user_pref("browser.download.always_ask_before_handling_new_types", true);
 user_pref("browser.download.manager.addToRecentDocs", false);
 
 /** PDF ***/
@@ -229,16 +229,21 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 ///// BETTERFOX OVERRIDES /////
 // PREF: enable urlbar group labels
 user_pref("browser.urlbar.groupLabels.enabled", true);
-// PREF: dont ask to save new file types.
-user_pref("browser.download.always_ask_before_handling_new_types", false);
 // PREF: enable CSS prefers-color-scheme
 user_pref("layout.css.prefers-color-scheme.content-override", 0);
 // PREF: enable Firefox Suggest
 user_pref("browser.search.suggest.enabled", true);
 // PREF: allow websites to ask you for your location
 user_pref("permissions.default.geo", 0);
+// PREF: enable search history
+user_pref("browser.formfill.enable", true);
+
 
 ///// UNIQUE /////
+// PREF: enable faster vertical scrolling
+user_pref("mousewheel.default.delta_multiplier_y", 500);
+// PREF: use webrender always (gpu)
+user_pref("gfx.webrender.all", true);
 // PREF: use Mozilla Location Services
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 // PREF: enable GPU-accelerated Canvas2D [WINDOWS]
@@ -257,6 +262,7 @@ user_pref("privacy.clearOnShutdown.formdata", true)
 // PREF: disable autofill
 user_pref("extensions.formautofill.addresses.enabled", false);
 user_pref("extensions.formautofill.creditCards.enabled", false);
+
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
