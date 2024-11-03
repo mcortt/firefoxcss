@@ -1,7 +1,7 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: 129                                                             *
+ * version: 130                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
@@ -43,9 +43,7 @@ user_pref("network.predictor.enabled", false);
 user_pref("network.predictor.enable-prefetch", false);
 
 /** EXPERIMENTAL ***/
-user_pref("layout.css.grid-template-masonry-value.enabled", true);
 user_pref("dom.enable_web_task_scheduling", true);
-user_pref("dom.security.sanitizer.enabled", true);
 
 /****************************************************************************
  * SECTION: SECUREFOX                                                       *
@@ -104,17 +102,15 @@ user_pref("editor.truncate_user_pastes", false);
 /** MIXED CONTENT + CROSS-SITE ***/
 user_pref("security.mixed_content.block_display_content", true);
 user_pref("pdfjs.enableScripting", false);
-user_pref("extensions.postDownloadThirdPartyPrompt", false);
+
+/** EXTENSIONS ***/
+user_pref("extensions.enabledScopes", 5);
 
 /** HEADERS / REFERERS ***/
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 /** CONTAINERS ***/
 user_pref("privacy.userContext.ui.enabled", true);
-
-/** WEBRTC ***/
-user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
-user_pref("media.peerconnection.ice.default_address_only", true);
 
 /** SAFE BROWSING ***/
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
@@ -126,32 +122,32 @@ user_pref("permissions.manager.defaultsUrl", "");
 user_pref("webchannel.allowObject.urlWhitelist", "");
 
 /** TELEMETRY ***/
-// user_pref("datareporting.policy.dataSubmissionEnabled", false);
-// user_pref("datareporting.healthreport.uploadEnabled", false);
-// user_pref("toolkit.telemetry.unified", false);
-// user_pref("toolkit.telemetry.enabled", false);
-// user_pref("toolkit.telemetry.server", "data:,");
-// user_pref("toolkit.telemetry.archive.enabled", false);
-// user_pref("toolkit.telemetry.newProfilePing.enabled", false);
-// user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
-// user_pref("toolkit.telemetry.updatePing.enabled", false);
-// user_pref("toolkit.telemetry.bhrPing.enabled", false);
-// user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
-// user_pref("toolkit.telemetry.coverage.opt-out", true);
-// user_pref("toolkit.coverage.opt-out", true);
-// user_pref("toolkit.coverage.endpoint.base", "");
-// user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
-// user_pref("browser.newtabpage.activity-stream.telemetry", false);
+//user_pref("datareporting.policy.dataSubmissionEnabled", false);
+//user_pref("datareporting.healthreport.uploadEnabled", false);
+//user_pref("toolkit.telemetry.unified", false);
+//user_pref("toolkit.telemetry.enabled", false);
+//user_pref("toolkit.telemetry.server", "data:,");
+//user_pref("toolkit.telemetry.archive.enabled", false);
+//user_pref("toolkit.telemetry.newProfilePing.enabled", false);
+//user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
+//user_pref("toolkit.telemetry.updatePing.enabled", false);
+//user_pref("toolkit.telemetry.bhrPing.enabled", false);
+//user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
+//user_pref("toolkit.telemetry.coverage.opt-out", true);
+//user_pref("toolkit.coverage.opt-out", true);
+//user_pref("toolkit.coverage.endpoint.base", "");
+//user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
+//user_pref("browser.newtabpage.activity-stream.telemetry", false);
 
 /** EXPERIMENTS ***/
-// user_pref("app.shield.optoutstudies.enabled", false);
-// user_pref("app.normandy.enabled", false);
-// user_pref("app.normandy.api_url", "");
+//user_pref("app.shield.optoutstudies.enabled", false);
+//user_pref("app.normandy.enabled", false);
+//user_pref("app.normandy.api_url", "");
 
 /** CRASH REPORTS ***/
-// user_pref("breakpad.reportURL", "");
-// user_pref("browser.tabs.crashReporting.sendReport", false);
-// user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
+//user_pref("breakpad.reportURL", "");
+//user_pref("browser.tabs.crashReporting.sendReport", false);
+//user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 
 /** DETECTION ***/
 user_pref("captivedetect.canonicalURL", "");
@@ -199,9 +195,11 @@ user_pref("full-screen-api.warning.timeout", 0);
 user_pref("browser.urlbar.suggest.calculator", true);
 user_pref("browser.urlbar.unitConversion.enabled", true);
 user_pref("browser.urlbar.trending.featureGate", false);
+user_pref("dom.text_fragments.enabled", true);
 
 /** NEW TAB PAGE ***/
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
+user_pref("browser.newtabpage.activity-stream.showWeather", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 
 /** POCKET ***/
@@ -240,14 +238,18 @@ user_pref("browser.formfill.enable", true);
 
 
 ///// UNIQUE /////
+// PREF: disable search icon in urlbar
+user_pref("browser.urlbar.scotchBonnet.enableOverride", false);
+// PREF: enable resist fingerprinting in privacy mode
+// user_pref("privacy.resistFingerprinting.pbmode", false);
+// PREF: enable url tracker stripping in privacy mode
+user_pref("privacy.query_stripping.enabled.pbmode", true)
 // PREF: enable faster vertical scrolling
 user_pref("mousewheel.default.delta_multiplier_y", 500);
 // PREF: use webrender always (gpu)
 user_pref("gfx.webrender.all", true);
 // PREF: use Mozilla Location Services
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
-// PREF: enable GPU-accelerated Canvas2D [WINDOWS]
-user_pref("gfx.canvas.accelerated", true);
 // PREF: prevent keyboard shortcut hijacking
 user_pref("permissions.default.shortcuts", 2);
 // PREF: open bookmarks in new tabs always
