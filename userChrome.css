@@ -1,16 +1,23 @@
 /* Import styles */
 /* Vertical Tabs */
-/* @import url("autohide_bookmarks.css");
-#TabsToolbar{
-    display: none !important;
-} */
+/* @import url("autohide_bookmarks.css"); */
+/* @import url("vertical_bookmarks_toolbar.css"); */
 /* Horizontal Tabs */
-@import url("navbar_tabs_responsive_oneliner.css");
+/* @import url("navbar_tabs_responsive_oneliner.css"); */
 
 @-moz-document url(chrome://browser/content/browser.xhtml) {
 
 /* Custom CSS */
 /*///////////////////////////////////*/
+
+/* #sidebar-main:not(:hover){width: 45px !important;}
+
+#sidebar-main:not(:hover) .tabbrowser-tab{width: 50px !important; min-width: 0px !important}
+
+#sidebar-main:not(:hover) .tab-label-container, #sidebar-main:not(:hover) .tab-close-button{ display: none !important; }
+
+#sidebar-main:not(:hover) #vertical-tabs-newtab-button{width: 50px !important; min-width: 0px !important; appearance: none !important;} */
+
 /* MATCH THEMEING */
 /*///////////////////////////////////*/
 	
@@ -95,9 +102,9 @@
     }
 	
     /* Hide the 1px container line */
-    #tabbrowser-tabs .tab-context-line {
+    /* #tabbrowser-tabs .tab-context-line {
         display: none;
-    }
+    } */
 
     /* BORDER ALL TABS*/
     /* #tabbrowser-tabs .tab-background {
@@ -109,17 +116,17 @@
  
     /*OR JUST BORDER THE CONTAINER TABS AND HIGHLIGHT NON-CONTAINER BY SHADING THEM LIGHTER*/
     /* Highlight background tabs so they stand out */
-    .tab-background:not([selected]) {
+    /* .tab-background:not([selected]) {
         background-color: var(--toolbar-bgcolor);
         filter: invert(10%);
-    }
+    } */
     /* Add a 1px highlight line around all tabs that is themed to its container */
-    #tabbrowser-tabs .tab-background {
+    /* #tabbrowser-tabs .tab-background {
         border-top: solid 1px var(--identity-icon-color) !important;
         border-bottom: solid 1px var(--identity-icon-color) !important;
         border-left: solid 1px var(--identity-icon-color) !important;
         border-right: solid 1px var(--identity-icon-color) !important;
-    }
+    } */
 
 
 /*///////////////////////////////////*/
@@ -128,13 +135,13 @@
 	
     /* Round Tabs and URL Bar */
     #urlbar-background {
-        border-radius: 15px !important;
+        border-radius: 10px !important;
     }
     .tab-background {
-        border-radius: 15px !important; 
+        border-radius: 10px !important; 
     }
     #identity-icon-box {
-        border-radius: 15px !important;
+        border-radius: 10px !important;
     }
 	
     /* Remove max sidebar limit*/
@@ -166,9 +173,9 @@
     }
 	
 	/* Hide Match Diacritics */
-    .findbar-match-diacritics {
+    /* .findbar-match-diacritics {
         display: none !important;
-    }
+    } */
 	
     /* Disable full screen animation */
     #navigator-toolbox[fullscreenShouldAnimate] { transition: none !important; }
@@ -182,7 +189,6 @@
     #tabContextMenu menuseparator,
     #context_openANewTab,
     #context_reloadTab,
-    #context_closeTab,
     #context_closeTabOptions,
     #context_moveTabOptions,
     #context_bookmarkTab,
@@ -221,18 +227,17 @@
         padding: initial !important;
     }
 	
-    /* Hide left spacer on non-maximized windows */
-    .titlebar-spacer[type="pre-tabs"] {
+    /* Hide left/right spacers on non-maximized windows */
+    .titlebar-spacer {
         display: none !important;
     }
-	
 	/* Hide extension name in address bar */
     #identity-box.extensionPage #identity-icon-label {
         display: none !important;
     }
 	
     /* Hide All Tabs Button*/
-    #alltabs-button {
+    /* #alltabs-button {
         display: none !important;
-    }
+    } */
 }

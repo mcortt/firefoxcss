@@ -1,7 +1,7 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: 130                                                             *
+ * version: 131                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
@@ -43,6 +43,7 @@ user_pref("network.predictor.enabled", false);
 user_pref("network.predictor.enable-prefetch", false);
 
 /** EXPERIMENTAL ***/
+user_pref("layout.css.grid-template-masonry-value.enabled", true);
 user_pref("dom.enable_web_task_scheduling", true);
 
 /****************************************************************************
@@ -52,7 +53,6 @@ user_pref("dom.enable_web_task_scheduling", true);
 user_pref("browser.contentblocking.category", "strict");
 user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com");
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.twitter.com, *.twimg.com");
-user_pref("network.cookie.sameSite.noneRequiresSecure", true);
 user_pref("browser.download.start_downloads_in_tmp_dir", true);
 user_pref("browser.helperApps.deleteTempFileOnExit", true);
 user_pref("browser.uitour.enabled", false);
@@ -82,8 +82,6 @@ user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.urlbar.update2.engineAliasRefresh", true);
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.urlbar.quicksuggest.enabled", false);
-user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
-user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 user_pref("browser.urlbar.groupLabels.enabled", false);
 user_pref("browser.formfill.enable", false);
 user_pref("security.insecure_connection_text.enabled", true);
@@ -168,16 +166,11 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", 
 user_pref("browser.preferences.moreFromMozilla", false);
 user_pref("browser.aboutConfig.showWarning", false);
 user_pref("browser.aboutwelcome.enabled", false);
-user_pref("browser.tabs.tabmanager.enabled", false);
 user_pref("browser.profiles.enabled", true);
 
 /** THEME ADJUSTMENTS ***/
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("browser.compactmode.show", true);
-user_pref("browser.display.focus_ring_on_anything", true);
-user_pref("browser.display.focus_ring_style", 0);
-user_pref("browser.display.focus_ring_width", 0);
-user_pref("layout.css.prefers-color-scheme.content-override", 2);
 user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
 user_pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true);
 
@@ -195,7 +188,6 @@ user_pref("full-screen-api.warning.timeout", 0);
 user_pref("browser.urlbar.suggest.calculator", true);
 user_pref("browser.urlbar.unitConversion.enabled", true);
 user_pref("browser.urlbar.trending.featureGate", false);
-user_pref("dom.text_fragments.enabled", true);
 
 /** NEW TAB PAGE ***/
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
@@ -227,7 +219,7 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 ///// BETTERFOX OVERRIDES /////
 // PREF: enable urlbar group labels
 user_pref("browser.urlbar.groupLabels.enabled", true);
-// PREF: enable CSS prefers-color-scheme
+// PREF: enable CSS prefers-color-scheme - enable dark mode reporting to sites
 user_pref("layout.css.prefers-color-scheme.content-override", 0);
 // PREF: enable Firefox Suggest
 user_pref("browser.search.suggest.enabled", true);
@@ -245,7 +237,7 @@ user_pref("browser.urlbar.scotchBonnet.enableOverride", false);
 // PREF: enable url tracker stripping in privacy mode
 user_pref("privacy.query_stripping.enabled.pbmode", true)
 // PREF: enable faster vertical scrolling
-user_pref("mousewheel.default.delta_multiplier_y", 500);
+user_pref("mousewheel.default.delta_multiplier_y", 200);
 // PREF: use webrender always (gpu)
 user_pref("gfx.webrender.all", true);
 // PREF: use Mozilla Location Services
