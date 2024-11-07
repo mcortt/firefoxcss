@@ -1,191 +1,97 @@
-/* Import styles */
-/* Vertical Tabs */
-/* @import url("autohide_bookmarks.css"); */
-/* @import url("vertical_bookmarks_toolbar.css"); */
-/* Horizontal Tabs */
-/* @import url("navbar_tabs_responsive_oneliner.css"); */
+/* Firefox Custom CSS */
+
+/*///////////////////////////////////*/
+/* THEME STYLING */
+/*///////////////////////////////////*/
 
 @-moz-document url(chrome://browser/content/browser.xhtml) {
 
-/* Custom CSS */
-/*///////////////////////////////////*/
-
-/* #sidebar-main:not(:hover){width: 45px !important;}
-
-#sidebar-main:not(:hover) .tabbrowser-tab{width: 50px !important; min-width: 0px !important}
-
-#sidebar-main:not(:hover) .tab-label-container, #sidebar-main:not(:hover) .tab-close-button{ display: none !important; }
-
-#sidebar-main:not(:hover) #vertical-tabs-newtab-button{width: 50px !important; min-width: 0px !important; appearance: none !important;} */
-
-/* MATCH THEMEING */
-/*///////////////////////////////////*/
-	
-    /* Change urlbar highlight color */
-*   ::-moz-selection { 
-        background: var(--toolbar-color) !important; /* the background color of the highlight */ 
-        color: var(--toolbar-bgcolor) !important; /* the color of the text within the highlight */ }
-    /* Change urlbar focus highlight color */
+    /* URL Bar Styling */
     #urlbar:focus-within {
-        border: 2px solid var(--toolbar-color) !important; /*use --lwt-tab-line-color for most themes*/
-        border-radius: 15px !important; 
+        border: 2px solid var(--toolbar-color) !important;
+        border-radius: 10px !important;
         --urlbarView-highlight-background: var(--toolbar-color) !important;
         --urlbarView-highlight-color: var(--toolbar-bgcolor) !important;
     }
-    /* Hide normal urlbar highlight blue border */
-    #nav-bar { 
-        --toolbar-field-focus-border-color: transparent !important; 
+    #nav-bar {
+        --toolbar-field-focus-border-color: transparent !important;
     }
-
-    /* Theme urlbar action buttons */
+    
+    /* URL Bar Action Buttons */
     .urlbarView-action-btn, .urlbarView-global-action-btn {
         color: var(--toolbar-field-color) !important;
         background-color: var(--toolbar-field-background-color) !important;
         border: 1px solid var(--toolbar-field-color) !important;
     }
-		
-	/*Theme Right-Click Menu too*/
-    .menupopup-arrowscrollbox {
+
+    /* Right-Click Menu Styling */
+    .menupopup-arrowscrollbox, #appMenu-multiView {
         background-color: var(--toolbar-field-background-color) !important;
-        border-color: var(--toolbar-field-focus-color) !important;
+        border: 2px solid var(--toolbar-color) !important;
         color: var(--toolbar-field-color) !important;
     }
-    menuitem:hover {
-        background-color: var(--toolbar-field-color) !important;
+    menuitem:hover, #appMenu-multiView .subviewbutton:hover {
+        background-color: var(--toolbar-color) !important;
         color: var(--toolbar-field-background-color) !important;
     }
-	
-    /*theme Right-Click Menu sub-menus (with the arrows) on Hover*/
-    menu:where([_moz-menuactive="true"]:not([disabled="true"])), menuitem:where([_moz-menuactive="true"]:not([disabled="true"])) {
-        background-color: var(--toolbar-field-color) !important;
+    menu:where([_moz-menuactive="true"]:not([disabled="true"])),
+    menuitem:where([_moz-menuactive="true"]:not([disabled="true"])) {
+        background-color: var(--toolbar-color) !important;
         color: var(--toolbar-field-background-color) !important;
     }
-	#appMenu-popup {
-        background-color: transparent !important;
-        border-color: var(--toolbar-field-focus-color) !important;
-        color: var(--toolbar-field-color) !important;
-    }
-	
-    /* Theme the Main Menu */
-    #appMenu-multiView{
-        background-color: var(--toolbar-field-background-color) !important;
-        color: var(--toolbar-field-color) !important;
-    }
-    #appMenu-multiView .subviewbutton:hover {
-        background-color: var(--toolbar-field-color) !important; /* Change to your desired highlight color */
-        color: var(--toolbar-field-background-color) !important; /* Change to your desired text color */
-    }
-/*///////////////////////////////////*/
-/*TAB HIGHLIGHTING*/
-/*///////////////////////////////////*/
-	
-    /* Highlight selected tab to theme background color to stand out */
-    .tab-background[selected] {
-        background-color: var(--toolbar-field-background-color) !important;
-    }
-    .tab-text[selected] {
-        color: var(--toolbar-field-color) !important;
-    }
-	
-    /*Theme toolbar based on container color....NEXT THREE SECTIONS*/
-    :root:has(.tabbrowser-tab[selected].identity-color-blue) {
-        .tab-background[selected]{background: royalblue !important;}
-        .tab-text[selected]{color: white !important;}
-    }
-    :root:has(.tabbrowser-tab[selected].identity-color-purple) {
-        .tab-background[selected]{background: purple !important;}
-        .tab-text[selected]{color: white !important;}
-    }
-    :root:has(.tabbrowser-tab[selected].identity-color-green) {
-        .tab-background[selected]{background: green !important;}
-        .tab-text[selected]{color: white !important;}
-    }
-	
-    /* Hide the 1px container line */
-    /* #tabbrowser-tabs .tab-context-line {
-        display: none;
-    } */
-
-    /* BORDER ALL TABS*/
-    /* #tabbrowser-tabs .tab-background {
-        border-top: solid 1px var(--identity-icon-color, var(--toolbar-field-color)) !important;
-        border-bottom: solid 1px var(--identity-icon-color, var(--toolbar-field-color)) !important;
-        border-left: solid 1px var(--identity-icon-color, var(--toolbar-field-color)) !important;
-        border-right: solid 1px var(--identity-icon-color, var(--toolbar-field-color)) !important;
-    } */
- 
-    /*OR JUST BORDER THE CONTAINER TABS AND HIGHLIGHT NON-CONTAINER BY SHADING THEM LIGHTER*/
-    /* Highlight background tabs so they stand out */
-    /* .tab-background:not([selected]) {
-        background-color: var(--toolbar-bgcolor);
-        filter: invert(10%);
-    } */
-    /* Add a 1px highlight line around all tabs that is themed to its container */
-    /* #tabbrowser-tabs .tab-background {
-        border-top: solid 1px var(--identity-icon-color) !important;
-        border-bottom: solid 1px var(--identity-icon-color) !important;
-        border-left: solid 1px var(--identity-icon-color) !important;
-        border-right: solid 1px var(--identity-icon-color) !important;
-    } */
-
-
-/*///////////////////////////////////*/
-/*UI LAYOUT CHANGES*/
-/*///////////////////////////////////*/
-	
-    /* Round Tabs and URL Bar */
-    #urlbar-background {
-        border-radius: 10px !important;
-    }
-    .tab-background {
-        border-radius: 10px !important; 
-    }
-    #identity-icon-box {
-        border-radius: 10px !important;
-    }
-	
-    /* Remove max sidebar limit*/
-    #sidebar-box {max-width: 50vw !important;min-width: 5vw !important; }
     
-	/* Center Bookmarks Bar */
+    /* Tab Highlighting */
+    .tab-background[selected] {
+        outline: 2px solid !important;
+        z-index: 0 !important;
+    }
+    #tabbrowser-tabs .tab-context-line {
+        width: 5px !important;
+        z-index: 1 !important;
+    }
+
+/*///////////////////////////////////*/
+/* UI LAYOUT CHANGES */
+/*///////////////////////////////////*/
+
+    /* Rounded Elements */
+    #urlbar-background, .tab-background, #identity-icon-box {
+        border-radius: 10px !important;
+    }
+    
+    /* Centered Bookmarks Bar */
     #PlacesToolbarItems {
         display: flex !important;
         justify-content: center !important;
     }
-	
-	/* Move Find Bar above the page*/
+    
+    /* Centered Find Bar */
     .browserContainer > findbar {
-        order: -1 !important; 
+        order: -1 !important;
         border-top: none !important;
-    } 
-	
-    /* Center Find Bar content */
+    }
     .findbar-container {
         justify-content: center !important;
     }
-	
-    /* Hide Find Bar when not in use */
-    findbar:not(:focus-within) { 
-        height: 0px !important; 
-        overflow: hidden !important; 
-        padding: 0px !important; 
-        margin: 0px !important; 
+
+    /* Auto-hide Find Bar when inactive */
+    findbar:not(:focus-within) {
+        height: 0 !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
-	
-	/* Hide Match Diacritics */
-    /* .findbar-match-diacritics {
-        display: none !important;
-    } */
-	
-    /* Disable full screen animation */
-    #navigator-toolbox[fullscreenShouldAnimate] { transition: none !important; }
 
+    /* Disable Fullscreen Animation */
+    #navigator-toolbox[fullscreenShouldAnimate] {
+        transition: none !important;
+    }
 
 /*///////////////////////////////////*/
-/*HIDE UNUSED ELEMETS*/
+/* HIDE UNUSED ELEMENTS */
 /*///////////////////////////////////*/
-	
-    /* Hide specified tab context menu items */
+
+    /* Hide Tab Context Menu Items */
     #tabContextMenu menuseparator,
     #context_openANewTab,
     #context_reloadTab,
@@ -196,48 +102,41 @@
     #context_duplicateTabs,
     #context_closeDuplicateTabs,
     #context_undoCloseTab,
-    #context_selectAllTabs{
+    #context_selectAllTabs {
         display: none !important;
     }
-	
-	/* Hide 1password context menu item  id^= is wildcard*/
+    
+    /* Hide 1Password Context Menu Item */
     menu[id^="_d634138d-c276-4fc8-924b-40a0ea21d284"] {
         display: none !important;
     }
-	
-	/* Hide container page action button and reader mode button (F9 to use) */
-    #pageAction-urlbar-_testpilot-containers {
-        display: none !important
-    }
+    
+    /* Hide Containers Button and Reader Mode Button */
+    #pageAction-urlbar-_testpilot-containers,
     #reader-mode-button {
         display: none !important;
     }
-	
-	/* Hide navigation buttons by default */
+    
+    /* Navigation Buttons */
     #back-button[disabled], #forward-button[disabled] {
         visibility: hidden !important;
         width: 0 !important;
         padding: 0 !important;
     }
-	
-    /* Show navigation buttons when they are not disabled */
     #back-button:not([disabled]), #forward-button:not([disabled]) {
         visibility: visible !important;
         width: auto !important;
         padding: initial !important;
     }
-	
-    /* Hide left/right spacers on non-maximized windows */
+    
+    /* Hide Window Spacers on Non-maximized Windows */
     .titlebar-spacer {
         display: none !important;
     }
-	/* Hide extension name in address bar */
+
+    /* Hide Extension Name in Address Bar */
     #identity-box.extensionPage #identity-icon-label {
         display: none !important;
     }
-	
-    /* Hide All Tabs Button*/
-    /* #alltabs-button {
-        display: none !important;
-    } */
+    
 }
