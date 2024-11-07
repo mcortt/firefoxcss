@@ -1,20 +1,51 @@
 /* Firefox Custom CSS */
 
+@-moz-document url(chrome://browser/content/browser.xhtml) {
+
 /*///////////////////////////////////*/
 /* THEME STYLING */
 /*///////////////////////////////////*/
 
-@-moz-document url(chrome://browser/content/browser.xhtml) {
+    /* Compact Unified Extensions Menu */
+    #unified-extensions-view {
+        --uei-icon-size: 16px;
+        background-color: var(--toolbar-field-background-color) !important;
+        border: 2px solid var(--toolbar-color) !important;
+        color: var(--toolbar-field-color) !important;
+    }
+    .unified-extensions-item-action-button:hover {
+        background-color: var(--toolbar-color) !important;
+        color: var(--toolbar-field-background-color) !important;
+    }
+    .unified-extensions-item-menu-button.subviewbutton,
+    .unified-extensions-item-message-deck {
+        display: none !important;
+    }
 
     /* URL Bar Styling */
-    #urlbar:focus-within {
-        border: 2px solid var(--toolbar-color) !important;
-        border-radius: 10px !important;
+    #urlbar-input::-moz-selection {
+        background-color: var(--toolbar-color) !important;
+        color: var(--toolbar-field-background-color) !important;
+  }
+    #urlbar::selection{
         --urlbarView-highlight-background: var(--toolbar-color) !important;
         --urlbarView-highlight-color: var(--toolbar-bgcolor) !important;
     }
+    #urlbar{
+        --urlbarView-highlight-background: var(--toolbar-color) !important;
+        --urlbarView-highlight-color: var(--toolbar-field-background-color) !important;
+        border: 1px solid var(--toolbar-color) !important;
+        border-radius: 10px !important;
+    }
+    #urlbar:focus-within {
+        border: 2px solid var(--toolbar-color) !important;
+    }
     #nav-bar {
         --toolbar-field-focus-border-color: transparent !important;
+    }
+    .urlbarView-row:hover{
+        background-color: var(--toolbar-color) !important;
+        color: var(--toolbar-field-background-color) !important;
     }
     
     /* URL Bar Action Buttons */
