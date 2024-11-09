@@ -230,12 +230,14 @@ user_pref("browser.formfill.enable", true);
 
 
 ///// UNIQUE /////
+// PREF: enable tab group experiement
+user_pref("browser.tabs.groups.enabled", true);
 // PREF: disable search icon in urlbar
 user_pref("browser.urlbar.scotchBonnet.enableOverride", false);
 // PREF: enable resist fingerprinting in privacy mode
 // user_pref("privacy.resistFingerprinting.pbmode", false);
 // PREF: enable url tracker stripping in privacy mode
-user_pref("privacy.query_stripping.enabled.pbmode", true)
+user_pref("privacy.query_stripping.enabled.pbmode", true);
 // PREF: enable faster vertical scrolling
 user_pref("mousewheel.default.delta_multiplier_y", 200);
 // PREF: use webrender always (gpu)
@@ -252,7 +254,7 @@ user_pref("privacy.fingerprintingProtection", true);
 user_pref("ui.key.menuAccessKeyFocuses", false);
 // PREF: clear download and formdata
 user_pref("privacy.clearOnShutdown.downloads", true);
-user_pref("privacy.clearOnShutdown.formdata", true)
+user_pref("privacy.clearOnShutdown.formdata", true);
 // PREF: disable autofill
 user_pref("extensions.formautofill.addresses.enabled", false);
 user_pref("extensions.formautofill.creditCards.enabled", false);
