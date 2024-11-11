@@ -1,149 +1,138 @@
 /* Firefox Custom CSS */
-
 @-moz-document url(chrome://browser/content/browser.xhtml) {
 
     /*///////////////////////////////////*/
     /* THEME STYLING */
     /*///////////////////////////////////*/
-        /* Theme the second-sidebar custom userChrome.js*/
-        #sidebar-2-main {
-            background-color: var(--lwt-accent-color) !important;
-            color: var(--lwt-text-color) !important;
-        }
     
-        /* Compact Unified Extensions Menu */
-        #unified-extensions-view {
-            --uei-icon-size: 16px;
-            background-color: var(--panel-background) !important;
-            border: 2px solid var(--panel-border-color) !important;
-            color: var(--panel-color) !important;
-        }
-        .unified-extensions-item-action-button:hover {
-            background-color: var(--panel-color) !important;
-            color: var(--panel-background) !important;
-        }
-        .unified-extensions-item-menu-button.subviewbutton,
-        .unified-extensions-item-message-deck {
-            display: none !important;
-        }
-    
-        /* Right-Click Menu Styling */
-        .menupopup-arrowscrollbox, #appMenu-multiView {
-            background-color: var(--arrowpanel-background) !important;
-            border: 2px solid var(--arrowpanel-border-color) !important;
-            color: var(--arrowpanel-color) !important;
-        }
+    /* Theme the second-sidebar custom userChrome.js */
+    #sidebar-2-main {
+        background-color: var(--lwt-accent-color) !important;
+        color: var(--lwt-text-color) !important;
+    }
 
-        /* Highlight on hover */
-        menuitem:hover, #appMenu-multiView .subviewbutton:hover {
-            background-color: var(--arrowpanel-color) !important;
-            color: var(--arrowpanel-background) !important;
-        }
-        
-        /*highlight sub menus */
-        menu:where([_moz-menuactive="true"]:not([disabled="true"])),
-        menuitem:where([_moz-menuactive="true"]:not([disabled="true"])) {
-            background-color: var(--arrowpanel-color) !important;
-            color: var(--arrowpanel-background) !important;
-        } 
-        
-        /* Tab Highlighting */
-        .tab-background[selected] {
-            z-index: 0 !important;
-        }
-        #tabbrowser-tabs .tab-context-line {
-            width: 3px !important;
-            z-index: 1 !important;
-        }
+    /* Compact Unified Extensions Menu */
+    #unified-extensions-view {
+        --uei-icon-size: 16px;
+        background-color: var(--panel-background) !important;
+        border: 2px solid var(--panel-border-color) !important;
+        color: var(--panel-color) !important;
+    }
+    .unified-extensions-item-action-button:hover {
+        background-color: var(--panel-color) !important;
+        color: var(--panel-background) !important;
+    }
+    .unified-extensions-item-menu-button.subviewbutton,
+    .unified-extensions-item-message-deck {
+        display: none !important;
+    }
+
+    /* Right-Click Menu Styling */
+    .menupopup-arrowscrollbox, #appMenu-multiView {
+        background-color: var(--arrowpanel-background) !important;
+        border: 2px solid var(--arrowpanel-border-color) !important;
+        color: var(--arrowpanel-color) !important;
+    }
+
+    /* Highlight on hover */
+    menuitem:hover, #appMenu-multiView .subviewbutton:hover {
+        background-color: var(--arrowpanel-color) !important;
+        color: var(--arrowpanel-background) !important;
+    }
+    
+    /*highlight sub menus */
+    menu:where([_moz-menuactive="true"]:not([disabled="true"])),
+    menuitem:where([_moz-menuactive="true"]:not([disabled="true"])) {
+        background-color: var(--arrowpanel-color) !important;
+        color: var(--arrowpanel-background) !important;
+    } 
+    
+    /* Tab Highlighting */
+    .tab-background[selected] {
+        z-index: 0 !important;
+    }
+    #tabbrowser-tabs .tab-context-line {
+        width: 3px !important;
+        z-index: 1 !important;
+    }
     
     /*///////////////////////////////////*/
     /* UI LAYOUT CHANGES */
     /*///////////////////////////////////*/
     
-        /* Rounded Elements */
-        #urlbar-background, .tab-background, #identity-icon-box {
-            border-radius: 10px !important;
-        }
-        
-        /* Centered Bookmarks Bar */
-        #PlacesToolbarItems {
-            display: flex !important;
-            justify-content: center !important;
-        }
-        
-        /* Centered Find Bar */
-        .browserContainer > findbar {
-            order: -1 !important;
-            border-top: none !important;
-        }
-        .findbar-container {
-            justify-content: center !important;
-        }
+    /* Rounded Elements */
+    #urlbar-background, .tab-background, #identity-icon-box {
+        border-radius: 10px !important;
+    }
     
-        /* Auto-hide Find Bar when inactive */
-        findbar:not(:focus-within) {
-            height: 0 !important;
-            overflow: hidden !important;
-            padding: 0 !important;
-            margin: 0 !important;
-        }
+    /* Centered Bookmarks Bar */
+    #PlacesToolbarItems {
+        display: flex !important;
+        justify-content: center !important;
+    }
     
-        /* Disable Fullscreen Animation */
-        #navigator-toolbox[fullscreenShouldAnimate] {
-            transition: none !important;
-        }
+    /* Centered Find Bar */
+    .browserContainer > findbar, .findbar-container {
+        order: -1 !important;
+        border-top: none !important;
+        justify-content: center !important;
+    }
+
+    /* Auto-hide Find Bar when inactive */
+    findbar:not(:focus-within) {
+        height: 0 !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Disable Fullscreen Animation */
+    #navigator-toolbox[fullscreenShouldAnimate] {
+        transition: none !important;
+    }
     
     /*///////////////////////////////////*/
     /* HIDE UNUSED ELEMENTS */
     /*///////////////////////////////////*/
     
-        /* Hide Tab Context Menu Items */
-        #tabContextMenu menuseparator,
-        #context_openANewTab,
-        #context_reloadTab,
-        #context_closeTabOptions,
-        #context_moveTabOptions,
-        #context_bookmarkTab,
-        #context_duplicateTab,
-        #context_duplicateTabs,
-        #context_closeDuplicateTabs,
-        #context_undoCloseTab,
-        #context_selectAllTabs {
-            display: none !important;
-        }
-        
-        /* Hide 1Password Context Menu Item */
-        menu[id^="_d634138d-c276-4fc8-924b-40a0ea21d284"] {
-            display: none !important;
-        }
-        
-        /* Hide Containers Button and Reader Mode Button */
-        #pageAction-urlbar-_testpilot-containers,
-        #reader-mode-button {
-            display: none !important;
-        }
-        
-        /* Navigation Buttons */
-        #back-button[disabled], #forward-button[disabled] {
-            visibility: hidden !important;
-            width: 0 !important;
-            padding: 0 !important;
-        }
-        #back-button:not([disabled]), #forward-button:not([disabled]) {
-            visibility: visible !important;
-            width: auto !important;
-            padding: initial !important;
-        }
-        
-        /* Hide Window Spacers on Non-maximized Windows */
-        .titlebar-spacer {
-            display: none !important;
-        }
-    
-        /* Hide Extension Name in Address Bar */
-        #identity-box.extensionPage #identity-icon-label {
-            display: none !important;
-        }
-        
+    /* Hide Tab Context Menu Items */
+    #tabContextMenu menuseparator,
+    #context_openANewTab,
+    #context_reloadTab,
+    #context_closeTabOptions,
+    #context_moveTabOptions,
+    #context_bookmarkTab,
+    #context_duplicateTab,
+    #context_duplicateTabs,
+    #context_closeDuplicateTabs,
+    #context_undoCloseTab,
+    #context_selectAllTabs {
+        display: none !important;
     }
     
+    /* Hide 1Password Context Menu Item */
+    menu[id^="_d634138d-c276-4fc8-924b-40a0ea21d284"] {
+        display: none !important;
+    }
+    
+    /* Hide Containers Button and Reader Mode Button */
+    #pageAction-urlbar-_testpilot-containers,
+    #reader-mode-button {
+        display: none !important;
+    }
+    
+    /* Navigation Buttons */
+    #back-button[disabled], #forward-button[disabled] {
+        display: none !important;
+    }
+    
+    /* Hide Window Spacers on Non-maximized Windows */
+    .titlebar-spacer {
+        display: none !important;
+    }
+
+    /* Hide Extension Name in Address Bar */
+    #identity-box.extensionPage #identity-icon-label {
+        display: none !important;
+    }
+}
