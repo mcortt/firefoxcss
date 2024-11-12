@@ -230,6 +230,11 @@ user_pref("browser.formfill.enable", true);
 
 
 ///// UNIQUE /////
+// PREF: Enable Mico for System Theme
+user_pref("browser.theme.windows.accent-color-in-tabs.enabled", true)
+user_pref("browser.tabs.allow_transparent_browser", true)
+user_pref("browser.theme.native-theme", true)
+user_pref("widget.windows.mica", true)
 // PREF: enable tab group experiement
 user_pref("browser.tabs.groups.enabled", true);
 // PREF: disable search icon in urlbar
