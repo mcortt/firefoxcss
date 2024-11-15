@@ -225,11 +225,11 @@ user_pref("layout.css.prefers-color-scheme.content-override", 0);
 user_pref("browser.search.suggest.enabled", true);
 // PREF: allow websites to ask you for your location
 user_pref("permissions.default.geo", 0);
-// PREF: enable search history
-user_pref("browser.formfill.enable", true);
 
 
 ///// UNIQUE /////
+// PREF: Use Old Sanitize dialog (history scrub)
+user_pref("privacy.sanitize.useOldClearHistoryDialog", true)
 // PREF: Enable Mico for System Theme
 user_pref("browser.theme.windows.accent-color-in-tabs.enabled", true)
 user_pref("browser.tabs.allow_transparent_browser", true)
