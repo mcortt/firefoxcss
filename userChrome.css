@@ -15,9 +15,6 @@
     /* Compact Unified Extensions Menu */
     #unified-extensions-view {
         --uei-icon-size: 16px;
-        background-color: var(--panel-background) !important;
-        border: 2px solid var(--panel-border-color) !important;
-        color: var(--panel-color) !important;
     }
     .unified-extensions-item-action-button:hover {
         background-color: var(--panel-color) !important;
@@ -29,9 +26,9 @@
     }
 
     /* Right-Click Menu Styling */
-    .menupopup-arrowscrollbox, #appMenu-multiView {
+    .menupopup-arrowscrollbox {
         background-color: var(--arrowpanel-background) !important;
-        border: 2px solid var(--arrowpanel-border-color) !important;
+        border: 1px solid var(--arrowpanel-border-color) !important;
         color: var(--arrowpanel-color) !important;
     }
 
