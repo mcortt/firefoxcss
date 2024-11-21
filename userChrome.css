@@ -1,5 +1,5 @@
 /* Firefox Custom CSS */
-
+/* @import url(autohide_bookmarks.css); */
 @-moz-document url(chrome://browser/content/browser.xhtml) {
 
     /*///////////////////////////////////*/
