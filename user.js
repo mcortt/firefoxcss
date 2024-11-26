@@ -225,9 +225,15 @@ user_pref("layout.css.prefers-color-scheme.content-override", 0);
 user_pref("browser.search.suggest.enabled", true);
 // PREF: allow websites to ask you for your location
 user_pref("permissions.default.geo", 0);
+// PREF: enable ocsp verification
+user_pref("security.OCSP.enabled", 1);
+
 
 
 ///// UNIQUE /////
+//PREF: allow extensions on restricted pages. 
+// user_pref("extensions.webextensions.restrictedDomains", "");
+// user_pref("privacy.resistFingerprinting.block_mozAddonManager", true);
 // PREF: Use Old Sanitize dialog (history scrub)
 user_pref("privacy.sanitize.useOldClearHistoryDialog", true);
 // PREF: Enable Mico for System Theme
