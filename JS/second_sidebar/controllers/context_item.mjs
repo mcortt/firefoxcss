@@ -1,5 +1,7 @@
-import { MenuItem } from "../xul/base/menu_item.mjs";
+/* eslint-disable no-unused-vars */
+import { MenuItem } from "../xul/base/menuitem.mjs";
 import { WebPanelNewController } from "./web_panel_new.mjs";
+/* eslint-enable no-unused-vars */
 
 export class ContextItemController {
   /**
@@ -13,7 +15,7 @@ export class ContextItemController {
   injectContextItem() {
     const menupopup = document.querySelector("#contentAreaContextMenu");
     const menuitem = new MenuItem({ id: "context-openlinkinsidebar" }).setLabel(
-      "Open Link in Second Sidebar"
+      "Open Link in Second Sidebar",
     );
 
     menuitem.addEventListener("command", () => {

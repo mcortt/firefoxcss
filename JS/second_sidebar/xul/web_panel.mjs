@@ -1,7 +1,10 @@
+/* eslint-disable no-unused-vars */
 import { Browser } from "./base/browser.mjs";
 import { WebPanelTab } from "./web_panel_tab.mjs";
+/* eslint-enable no-unused-vars */
 
-const MOBILE_USER_AGENT = "Mozilla/5.0 (Linux; Android 11; SAMSUNG SM-G973U) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/14.2 Chrome/87.0.4280.141 Mobile Safari/537.36";
+const MOBILE_USER_AGENT =
+  "Mozilla/5.0 (Linux; Android 11; SAMSUNG SM-G973U) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/14.2 Chrome/87.0.4280.141 Mobile Safari/537.36";
 
 /**
  *
@@ -23,8 +26,10 @@ export class WebPanel extends Browser {
    * @param {boolean} pinned
    * @param {string} width
    * @param {boolean} mobile
+   * @param {number} zoom
    * @param {boolean} loadOnStartup
    * @param {boolean} unloadOnClose
+   * @param {boolean} hideToolbar
    * @param {object} params
    *
    */
@@ -36,8 +41,10 @@ export class WebPanel extends Browser {
     pinned,
     width,
     mobile,
+    zoom,
     loadOnStartup,
-    unloadOnClose
+    unloadOnClose,
+    hideToolbar,
   ) {
     super({
       classList: ["web-panel"],
@@ -54,8 +61,10 @@ export class WebPanel extends Browser {
     this.pinned = pinned;
     this.width = width;
     this.mobile = mobile;
+    this.zoom = zoom;
     this.loadOnStartup = loadOnStartup;
     this.unloadOnClose = unloadOnClose;
+    this.hideToolbar = hideToolbar;
 
     this.listener = null;
   }
@@ -123,7 +132,62 @@ export class WebPanel extends Browser {
    * @returns {WebPanel}
    */
   goHome() {
+    if (this.getZoom() !== this.zoom) {
+      this.setZoom(this.zoom);
+    }
     this.updateUserAgent();
     return this.go(this.url);
+  }
+
+  /**
+   *
+   * @param {boolean} isUnloaded
+   * @returns {WebPanel}
+   */
+  zoomIn(isUnloaded) {
+    if (isUnloaded) {
+      this.zoom = Math.min(
+        Math.round((this.zoom + this.ZOOM_DELTA) * 100) / 100,
+        ZoomManager.MAX,
+      );
+    } else {
+      Browser.prototype.zoomIn.call(this);
+      this.zoom = this.getZoom();
+    }
+    return this;
+  }
+
+  /**
+   *
+   * @param {boolean} isUnloaded
+   * @returns {WebPanel}
+   */
+  zoomOut(isUnloaded) {
+    if (isUnloaded) {
+      this.zoom = Math.max(
+        Math.round((this.zoom - this.ZOOM_DELTA) * 100) / 100,
+        ZoomManager.MIN,
+      );
+    } else {
+      Browser.prototype.zoomOut.call(this);
+      this.zoom = this.getZoom();
+    }
+    return this;
+  }
+
+  /**
+   *
+   * @param {number}
+   * @param {boolean} isUnloaded
+   * @returns {WebPanel}
+   */
+  setZoom(value, isUnloaded) {
+    if (isUnloaded) {
+      this.zoom = value;
+    } else {
+      Browser.prototype.setZoom.call(this, value);
+      this.zoom = this.getZoom();
+    }
+    return this;
   }
 }

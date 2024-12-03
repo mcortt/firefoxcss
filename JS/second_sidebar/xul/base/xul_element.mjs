@@ -15,7 +15,7 @@ export class XULElement {
       classList = [],
       create = (tag) => document.createXULElement(tag),
       element,
-    } = {}
+    } = {},
   ) {
     this.element = element ?? create(tag);
     if (id !== null) {
@@ -66,6 +66,16 @@ export class XULElement {
 
   /**
    *
+   * @param {XULElement} child
+   * @returns {XULElement}
+   */
+  prependChild(child) {
+    this.element.insertBefore(child.getXUL(), this.element.firstChild);
+    return this;
+  }
+
+  /**
+   *
    * @param {Array<XULElement>} children
    * @returns {XULElement}
    */
@@ -87,6 +97,27 @@ export class XULElement {
 
   /**
    *
+   * @param {object} attributes
+   * @returns {MenuItem}
+   */
+  setAttributes(attributes = {}) {
+    for (const [key, value] of Object.entries(attributes)) {
+      this.element.setAttribute(key, value);
+    }
+    return this;
+  }
+
+  /**
+   *
+   * @param {string} name
+   * @returns {boolean}
+   */
+  hasAttribute(name) {
+    return this.element.hasAttribute(name);
+  }
+
+  /**
+   *
    * @param {string} name
    * @returns {string|number}
    */
@@ -99,7 +130,7 @@ export class XULElement {
    * @param {string} name
    * @returns {XULElement}
    */
-  removeAttribute(name, value) {
+  removeAttribute(name) {
     this.element.removeAttribute(name);
     return this;
   }
@@ -151,12 +182,53 @@ export class XULElement {
 
   /**
    *
+   * @param {string} property
+   * @returns {string}
+   */
+  getProperty(property) {
+    return this.element.style.getPropertyValue(property);
+  }
+
+  /**
+   *
+   * @param {string} property
+   * @param {string} value
+   * @returns {XULElement}
+   */
+  setProperty(property, value) {
+    this.element.style.setProperty(property, value);
+    return this;
+  }
+
+  /**
+   *
    * @param {string} event
    * @param {function(MouseEvent):void} callback
    * @returns {XULElement}
    */
   addEventListener(event, callback) {
     this.element.addEventListener(event, callback);
+    return this;
+  }
+
+  /**
+   *
+   * @param {string} event
+   * @param {function(MouseEvent):void} callback
+   * @returns {XULElement}
+   */
+  removeEventListener(event, callback) {
+    this.element.removeEventListener(event, callback);
+    return this;
+  }
+
+  /**
+   *
+   * @param {Event} event
+   * @returns {XULElement}
+   */
+  dispatchEvent(event) {
+    this.element.dispatchEvent(event);
     return this;
   }
 

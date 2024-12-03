@@ -10,6 +10,11 @@ export class Browser extends XULElement {
    */
   constructor({ id = null, classList = [], element } = {}) {
     super("browser", { id, classList, element });
+    this.ZOOM_DELTA = 0.1;
+  }
+
+  getTabBrowser() {
+    return this.element.getTabBrowser();
   }
 
   /**
@@ -37,6 +42,14 @@ export class Browser extends XULElement {
    */
   setRemote(value) {
     return this.setAttribute("remote", value);
+  }
+
+  /**
+   *
+   * @returns {string}
+   */
+  getCurrentUrl() {
+    return this.element.currentURI.spec;
   }
 
   /**
@@ -102,6 +115,41 @@ export class Browser extends XULElement {
       triggeringPrincipal: Services.scriptSecurityManager.getSystemPrincipal(),
     });
 
+    return this;
+  }
+
+  /**
+   *
+   * @returns {number}
+   */
+  getZoom() {
+    return ZoomManager.getZoomForBrowser(this.element);
+  }
+
+  /**
+   *
+   * @returns {Browser}
+   */
+  zoomIn() {
+    FullZoom.changeZoomBy(this.element, this.ZOOM_DELTA);
+    return this;
+  }
+
+  /**
+   *
+   * @returns {Browser}
+   */
+  zoomOut() {
+    FullZoom.changeZoomBy(this.element, -this.ZOOM_DELTA);
+    return this;
+  }
+
+  /**
+   *
+   * @returns {Browser}
+   */
+  setZoom(value) {
+    FullZoom.setZoom(value, this.element);
     return this;
   }
 

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { SidebarController } from "./sidebar.mjs";
 import { WebPanelController } from "./web_panel.mjs";
 import { WebPanelEditController } from "./web_panel_edit.mjs";
@@ -5,6 +6,7 @@ import { WebPanelNewButton } from "../xul/web_panel_new_button.mjs";
 import { WebPanelPopupNew } from "../xul/web_panel_popup_new.mjs";
 import { WebPanelsController } from "./web_panels.mjs";
 import { fetchIconURL } from "../utils/icons.mjs";
+/* eslint-enable no-unused-vars */
 
 export class WebPanelNewController {
   /**
@@ -28,7 +30,7 @@ export class WebPanelNewController {
       this.createWebPanelAndOpen(url);
     });
 
-    this.webPanelPopupNew.listenCancelButtonClick((url) => {
+    this.webPanelPopupNew.listenCancelButtonClick(() => {
       this.hidePopup();
     });
   }
@@ -42,7 +44,7 @@ export class WebPanelNewController {
   setupDependencies(
     sidebarController,
     webPanelsController,
-    webPanelEditController
+    webPanelEditController,
   ) {
     this.sidebarController = sidebarController;
     this.webPanelsController = webPanelsController;
@@ -66,7 +68,7 @@ export class WebPanelNewController {
     try {
       NetUtil.newURI(url);
     } catch (error) {
-      console.log("Invalid url");
+      console.log("Invalid url:", error);
       return;
     }
 
@@ -80,27 +82,30 @@ export class WebPanelNewController {
       webPanelTab,
       uuid,
       url,
-      faviconURL
+      faviconURL,
     );
     const webPanelButton =
       this.webPanelsController.makeWebPanelButton(webPanel);
 
-    const webPanelController = new WebPanelController(
+    const webPanelController = this.webPanelsController.makeWebPanelController(
       webPanel,
       webPanelButton,
-      webPanelTab
+      webPanelTab,
     );
     webPanelController.setupDependencies(
       this.webPanelsController,
       this.sidebarController,
-      this.webPanelEditController
+      this.webPanelEditController,
     );
 
     this.webPanelsController.injectWebPanelTab(webPanelTab);
     this.webPanelsController.injectWebPanel(webPanel);
     webPanelController.initWebPanel();
 
-    this.webPanelsController.injectWebPanelButton(webPanelButton);
+    this.webPanelsController.injectWebPanelButton(
+      webPanelButton,
+      this.getPosition(),
+    );
     webPanelController.initWebPanelButton();
 
     this.sidebarController.close();
@@ -109,15 +114,35 @@ export class WebPanelNewController {
       webPanel.width,
       webPanel.canGoBack(),
       webPanel.canGoForward(),
-      webPanel.getTitle()
+      webPanel.getTitle(),
+      webPanel.getZoom(),
+      webPanel.hideToolbar,
     );
     webPanelController.show();
 
     this.webPanelsController.add(webPanelController);
-    this.webPanelsController.savePref();
+    this.webPanelsController.saveSettings();
   }
 
   hidePopup() {
     this.webPanelPopupNew.hidePopup();
+  }
+
+  /**
+   *
+   * @returns {string}
+   */
+  getPosition() {
+    return this.webPanelNewButton.getProperty("order") === "-1"
+      ? "start"
+      : "end";
+  }
+
+  /**
+   *
+   * @param {string} value
+   */
+  setPosition(value) {
+    this.webPanelNewButton.setProperty("order", value === "start" ? -1 : 1);
   }
 }
