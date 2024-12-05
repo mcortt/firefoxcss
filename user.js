@@ -231,6 +231,8 @@ user_pref("security.OCSP.enabled", 1);
 
 
 ///// UNIQUE /////
+//PREF: allow fullscreen ui without maximizing window
+user_pref("full-screen-api.ignore-widgets", true);
 //PREF: allow extensions on restricted pages. 
 // user_pref("extensions.webextensions.restrictedDomains", "");
 // user_pref("privacy.resistFingerprinting.block_mozAddonManager", true);

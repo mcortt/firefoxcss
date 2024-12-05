@@ -37,7 +37,8 @@
 
 #navigator-toolbox:hover #PersonalToolbar,
 #navigator-toolbox:focus-within #PersonalToolbar,
-#PersonalToolbar:hover {
+#PersonalToolbar:hover,
+#PersonalToolbar:focus-within {  /* Added for focus within the toolbar itself */
   transition-delay: 100ms !important;
   transform: rotateX(var(--uc-autohide-toolbar-focus-rotation,0));
 }

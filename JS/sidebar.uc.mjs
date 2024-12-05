@@ -1,17 +1,33 @@
 UC_API.Runtime.startupFinished().then(() => {
+    // Function to get the browser UI density setting
+    function getUIDensityWidth() {
+        let densityWidth = 48.2333; // Default to "compact" density
+        try {
+            const density = Services.prefs.getIntPref("browser.uidensity", 1); // 0: Normal, 1: Compact, 2: Touch
+            if (density === 0) {
+                densityWidth = 51.2333; // Normal density
+            } else if (density === 2) {
+                densityWidth = 60.2333; // Touch density
+            }
+        } catch (e) {
+            console.error("Error getting UI density setting:", e);
+        }
+        return densityWidth + "px";
+    }
+
     // Function to inject the custom div and styles
     function injectDivAndStyles() {
         const sidebarButton = document.getElementById('sidebar-button');
         const sidebar = document.getElementById('sidebar-main');
         if (!sidebarButton || !sidebar) return;
 
-        // Get the sidebar width and check if the custom div exists
-        const sidebarWidth = window.getComputedStyle(sidebar).width;
+        // Get the sidebar width from the UI density
+        const sidebarWidth = getUIDensityWidth();
         let customDiv = document.getElementById('custom-injected-div');
 
         if (customDiv) {
             customDiv.style.width = sidebarWidth; // Update width if div exists
-            return; 
+            return;
         }
 
         // Create and inject styles for floating sidebar and custom div
@@ -39,7 +55,7 @@ UC_API.Runtime.startupFinished().then(() => {
         // Create and insert the custom div before the sidebar
         customDiv = document.createElement('div');
         customDiv.id = 'custom-injected-div';
-        customDiv.style.width = sidebarWidth; 
+        customDiv.style.width = sidebarWidth;
         document.getElementById('browser').insertBefore(customDiv, sidebar);
     }
 
@@ -99,3 +115,16 @@ UC_API.Runtime.startupFinished().then(() => {
         }
     });
 });
+
+
+// userChrome.js
+(function() {
+    const { CustomizableUI } = window;
+    window.addEventListener('keydown', (event) => {
+        if (event.code === 'F4') {
+            event.preventDefault(); // Prevent default behavior
+            gURLBar.focus(); // Focus the address bar
+            gURLBar.select(); // Highlight the text in the address bar
+        }
+    }, true);
+})();

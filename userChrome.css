@@ -1,16 +1,23 @@
 /* Firefox Custom CSS */
-/* @import url(autohide_bookmarks.css); */
+/* @import url(autohide_toolbox.css); */
 @-moz-document url(chrome://browser/content/browser.xhtml) {
+
+    /* Hide the sidebar when the browser is in fullscreen mode */
+    html[inFullscreen] #sidebar-main,
+    html[inFullscreen] #custom-injected-div {
+        display: none !important;
+    }
+    
 
     /*///////////////////////////////////*/
     /* THEME STYLING */
     /*///////////////////////////////////*/
     
     /* Theme the second-sidebar custom userChrome.js */
-    #sidebar-2-main {
+    /* #sidebar-2-main {
         background-color: var(--lwt-accent-color) !important;
         color: var(--lwt-text-color) !important;
-    }
+    } */
 
     /* Compact Unified Extensions Menu */
     #unified-extensions-view {
@@ -53,7 +60,30 @@
         width: 3px !important;
         z-index: 1 !important;
     }
-    
+
+    /*Theme toolbar based on container color....NEXT THREE SECTIONS*/
+    /* #tabbrowser-tabs .tab-context-line {
+        display: none;
+    }
+    #tabbrowser-tabs .tab-background {
+        border-top: solid 2px var(--identity-icon-color) !important;
+        border-bottom: solid 2px var(--identity-icon-color) !important;
+        border-left: solid 2px var(--identity-icon-color) !important;
+        border-right: solid 2px var(--identity-icon-color) !important;
+    } 
+    :root:has(.tabbrowser-tab[selected].identity-color-blue) {
+        .tab-background[selected]{background: royalblue !important;}
+        .tab-text[selected]{color: white !important;}
+    }
+    :root:has(.tabbrowser-tab[selected].identity-color-purple) {
+        .tab-background[selected]{background: purple !important;}
+        .tab-text[selected]{color: white !important;}
+    }
+    :root:has(.tabbrowser-tab[selected].identity-color-green) {
+        .tab-background[selected]{background: green !important;}
+        .tab-text[selected]{color: white !important;} 
+    } */
+
     /*///////////////////////////////////*/
     /* UI LAYOUT CHANGES */
     /*///////////////////////////////////*/
@@ -112,13 +142,7 @@
     menu[id^="_d634138d-c276-4fc8-924b-40a0ea21d284"] {
         display: none !important;
     }
-    
-    /* Hide Containers Button and Reader Mode Button */
-    #pageAction-urlbar-_testpilot-containers,
-    #reader-mode-button {
-        display: none !important;
-    }
-    
+
     /* Navigation Buttons */
     #back-button[disabled], #forward-button[disabled] {
         display: none !important;
