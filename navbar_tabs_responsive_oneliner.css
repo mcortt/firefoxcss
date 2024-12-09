@@ -1,5 +1,3 @@
-@import url("autohide_bookmarks.css");
-
 /* Modify it to suit your needs */
 @media screen and (min-width: 1275px){
   :root[tabsintitlebar][sizemode="normal"]{

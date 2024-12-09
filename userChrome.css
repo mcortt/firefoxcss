@@ -1,23 +1,30 @@
 /* Firefox Custom CSS */
 /* @import url(autohide_toolbox.css); */
+@import url(navbar_tabs_responsive_oneliner.css);
 @-moz-document url(chrome://browser/content/browser.xhtml) {
-
-    /* Hide the sidebar when the browser is in fullscreen mode */
-    html[inFullscreen] #sidebar-main,
-    html[inFullscreen] #custom-injected-div {
-        display: none !important;
-    }
-    
 
     /*///////////////////////////////////*/
     /* THEME STYLING */
     /*///////////////////////////////////*/
-    
+
+    /* Hide the sidebar when the browser is in fullscreen mode */
+    /* html[inFullscreen] #sidebar-main,
+    html[inFullscreen] #custom-injected-div {
+        display: none !important;
+    }
+     */
+
     /* Theme the second-sidebar custom userChrome.js */
     /* #sidebar-2-main {
         background-color: var(--lwt-accent-color) !important;
         color: var(--lwt-text-color) !important;
     } */
+
+    /* Highlight background tabs so they stand out */
+    .tab-background:not([selected]) {
+        background-color: var(--toolbar-bgcolor);
+        filter: invert(10%);
+    }
 
     /* Compact Unified Extensions Menu */
     #unified-extensions-view {
@@ -52,17 +59,17 @@
         color: var(--arrowpanel-background) !important;
     } 
     
-    /* Tab Highlighting */
-    .tab-background[selected] {
+    /* Tab Highlighting VERTICAL */
+    /* .tab-background[selected] {
         z-index: 0 !important;
     }
     #tabbrowser-tabs .tab-context-line {
         width: 3px !important;
         z-index: 1 !important;
-    }
+    } */
 
-    /*Theme toolbar based on container color....NEXT THREE SECTIONS*/
-    /* #tabbrowser-tabs .tab-context-line {
+    /*Theme toolbar based on container color HORIZONTAL....NEXT THREE SECTIONS*/
+    #tabbrowser-tabs .tab-context-line {
         display: none;
     }
     #tabbrowser-tabs .tab-background {
@@ -82,7 +89,7 @@
     :root:has(.tabbrowser-tab[selected].identity-color-green) {
         .tab-background[selected]{background: green !important;}
         .tab-text[selected]{color: white !important;} 
-    } */
+    }
 
     /*///////////////////////////////////*/
     /* UI LAYOUT CHANGES */
@@ -90,7 +97,7 @@
     
     /* Rounded Elements */
     #urlbar-background, .tab-background, #identity-icon-box {
-        border-radius: 10px !important;
+        border-radius: 20px !important;
     }
     
     /* Centered Bookmarks Bar */
@@ -123,18 +130,23 @@
     /* HIDE UNUSED ELEMENTS */
     /*///////////////////////////////////*/
     
+	/* Hide container page action button */
+    #pageAction-urlbar-_testpilot-containers {
+        display: none !important
+    }
+
     /* Hide Tab Context Menu Items */
-    #tabContextMenu menuseparator,
+    /* #tabContextMenu menuseparator, */
     #context_openANewTab,
     #context_reloadTab,
-    #context_closeTabOptions,
+    #context_closeTab,
+    /* #context_closeTabOptions,
     #context_moveTabOptions,
     #context_bookmarkTab,
     #context_duplicateTab,
     #context_duplicateTabs,
-    #context_closeDuplicateTabs,
-    #context_undoCloseTab,
-    #context_selectAllTabs {
+    #context_closeDuplicateTabs, */
+    #context_undoCloseTab {
         display: none !important;
     }
     
