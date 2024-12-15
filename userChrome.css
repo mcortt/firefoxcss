@@ -129,6 +129,11 @@
     /*///////////////////////////////////*/
     /* HIDE UNUSED ELEMENTS */
     /*///////////////////////////////////*/
+
+    /* Hide all tabs button */
+    #alltabs-button {
+        display: none !important;
+    }
     
 	/* Hide container page action button */
     #pageAction-urlbar-_testpilot-containers {
